@@ -15,7 +15,7 @@
                 <div style="min-height: 80vh;" class="col d-flex align-items-center justify-content-center">
                     <div>
                         <h1>O melhor lugar para partilhar conhecimento!</h1>
-                        <hr style="border-top: 8px solid #000;border-radius: 5px;" >
+                        <div style="height: 8px; background-color: #000000; border-radius: 5px; width: 100%; margin: 20px 0;"></div>
                         
                         <p>Encontra, partilha e colabora com os melhores apontamentos para o teu sucesso académico na EST. Acede a resumos, fichas e materiais de estudo feitos por estudantes para estudantes como tu. </p>
                         <p>Simplifica a tua aprendiza e melhora as tuas notas com a nossa comunidade! 🚀📚!</p>
