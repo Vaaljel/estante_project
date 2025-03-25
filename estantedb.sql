@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2025 at 07:32 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Tempo de geração: 25-Mar-2025 às 10:53
+-- Versão do servidor: 10.4.32-MariaDB
+-- versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `estantedb`
+-- Banco de dados: `estantedb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `apontamento`
+-- Estrutura da tabela `apontamentos`
 --
 
-CREATE TABLE `apontamento` (
+CREATE TABLE `apontamentos` (
   `id_apo` int(11) NOT NULL,
   `id_utilizador` int(11) NOT NULL,
   `id_disciplina` int(11) NOT NULL,
@@ -41,11 +41,12 @@ CREATE TABLE `apontamento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `avalicao`
+-- Estrutura da tabela `avalicao`
 --
 
 CREATE TABLE `avalicao` (
   `id_avalicao` int(11) NOT NULL,
+  `id_apo` int(11) NOT NULL,
   `id_utilizador` int(11) NOT NULL,
   `avalicao` text NOT NULL,
   `data_avaliacao` date NOT NULL DEFAULT curdate()
@@ -54,11 +55,12 @@ CREATE TABLE `avalicao` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comentario`
+-- Estrutura da tabela `comentario`
 --
 
 CREATE TABLE `comentario` (
   `id_comentario` int(11) NOT NULL,
+  `id_apo` int(11) NOT NULL,
   `id_utilizador` int(11) NOT NULL,
   `cometario` text DEFAULT NULL,
   `data_comentario` date NOT NULL DEFAULT curdate()
@@ -67,7 +69,7 @@ CREATE TABLE `comentario` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `curso`
+-- Estrutura da tabela `curso`
 --
 
 CREATE TABLE `curso` (
@@ -79,7 +81,7 @@ CREATE TABLE `curso` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `disciplina`
+-- Estrutura da tabela `disciplina`
 --
 
 CREATE TABLE `disciplina` (
@@ -93,11 +95,12 @@ CREATE TABLE `disciplina` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sugestao`
+-- Estrutura da tabela `sugestao`
 --
 
 CREATE TABLE `sugestao` (
   `id_sugestao` int(11) NOT NULL,
+  `id_apon` int(11) NOT NULL,
   `id_utilizador` int(11) NOT NULL,
   `sugestao` text DEFAULT NULL,
   `data_sugestao` date NOT NULL DEFAULT curdate()
@@ -106,7 +109,7 @@ CREATE TABLE `sugestao` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilizadores`
+-- Estrutura da tabela `utilizadores`
 --
 
 CREATE TABLE `utilizadores` (
@@ -120,139 +123,145 @@ CREATE TABLE `utilizadores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `apontamento`
+-- Índices para tabela `apontamentos`
 --
-ALTER TABLE `apontamento`
+ALTER TABLE `apontamentos`
   ADD PRIMARY KEY (`id_apo`),
   ADD KEY `id_disciplina` (`id_disciplina`),
   ADD KEY `fk_utilizador` (`id_utilizador`);
 
 --
--- Indexes for table `avalicao`
+-- Índices para tabela `avalicao`
 --
 ALTER TABLE `avalicao`
   ADD PRIMARY KEY (`id_avalicao`),
-  ADD KEY `fk_avaliacao_utilizador` (`id_utilizador`);
+  ADD KEY `fk_avaliacao_utilizador` (`id_utilizador`),
+  ADD KEY `fk_avaliacao_apontamento` (`id_apo`);
 
 --
--- Indexes for table `comentario`
+-- Índices para tabela `comentario`
 --
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `fk_comentario_apontamento` (`id_apo`),
   ADD KEY `fk_comentario_utilizador` (`id_utilizador`);
 
 --
--- Indexes for table `curso`
+-- Índices para tabela `curso`
 --
 ALTER TABLE `curso`
   ADD PRIMARY KEY (`id_curso`);
 
 --
--- Indexes for table `disciplina`
+-- Índices para tabela `disciplina`
 --
 ALTER TABLE `disciplina`
   ADD PRIMARY KEY (`id_disciplina`),
   ADD KEY `id_curso` (`id_curso`);
 
 --
--- Indexes for table `sugestao`
+-- Índices para tabela `sugestao`
 --
 ALTER TABLE `sugestao`
   ADD PRIMARY KEY (`id_sugestao`),
+  ADD KEY `fk_sugestao_apon` (`id_apon`),
   ADD KEY `fk_sugestao_utilizador` (`id_utilizador`);
 
 --
--- Indexes for table `utilizadores`
+-- Índices para tabela `utilizadores`
 --
 ALTER TABLE `utilizadores`
   ADD PRIMARY KEY (`id_utilizador`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `apontamento`
+-- AUTO_INCREMENT de tabela `apontamentos`
 --
-ALTER TABLE `apontamento`
+ALTER TABLE `apontamentos`
   MODIFY `id_apo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `avalicao`
+-- AUTO_INCREMENT de tabela `avalicao`
 --
 ALTER TABLE `avalicao`
   MODIFY `id_avalicao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `comentario`
+-- AUTO_INCREMENT de tabela `comentario`
 --
 ALTER TABLE `comentario`
   MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `curso`
+-- AUTO_INCREMENT de tabela `curso`
 --
 ALTER TABLE `curso`
   MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `disciplina`
+-- AUTO_INCREMENT de tabela `disciplina`
 --
 ALTER TABLE `disciplina`
   MODIFY `id_disciplina` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `sugestao`
+-- AUTO_INCREMENT de tabela `sugestao`
 --
 ALTER TABLE `sugestao`
   MODIFY `id_sugestao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `utilizadores`
+-- AUTO_INCREMENT de tabela `utilizadores`
 --
 ALTER TABLE `utilizadores`
   MODIFY `id_utilizador` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
--- Constraints for table `apontamento`
+-- Limitadores para a tabela `apontamentos`
 --
-ALTER TABLE `apontamento`
+ALTER TABLE `apontamentos`
   ADD CONSTRAINT `apontamento_ibfk_1` FOREIGN KEY (`id_utilizador`) REFERENCES `utilizadores` (`id_utilizador`),
   ADD CONSTRAINT `apontamento_ibfk_2` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplina` (`id_disciplina`),
   ADD CONSTRAINT `fk_utilizador` FOREIGN KEY (`id_utilizador`) REFERENCES `utilizadores` (`id_utilizador`);
 
 --
--- Constraints for table `avalicao`
+-- Limitadores para a tabela `avalicao`
 --
 ALTER TABLE `avalicao`
+  ADD CONSTRAINT `avalicao_apontamento` FOREIGN KEY (`id_apo`) REFERENCES `apontamentos` (`id_apo`),
   ADD CONSTRAINT `avalicao_ibfk_1` FOREIGN KEY (`id_utilizador`) REFERENCES `utilizadores` (`id_utilizador`),
   ADD CONSTRAINT `fk_avaliacao_utilizador` FOREIGN KEY (`id_utilizador`) REFERENCES `utilizadores` (`id_utilizador`);
 
 --
--- Constraints for table `comentario`
+-- Limitadores para a tabela `comentario`
 --
 ALTER TABLE `comentario`
   ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_utilizador`) REFERENCES `utilizadores` (`id_utilizador`),
+  ADD CONSTRAINT `fk_comentario_apontamento` FOREIGN KEY (`id_apo`) REFERENCES `apontamentos` (`id_apo`),
   ADD CONSTRAINT `fk_comentario_utilizador` FOREIGN KEY (`id_utilizador`) REFERENCES `utilizadores` (`id_utilizador`);
 
 --
--- Constraints for table `disciplina`
+-- Limitadores para a tabela `disciplina`
 --
 ALTER TABLE `disciplina`
   ADD CONSTRAINT `disciplina_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`);
 
 --
--- Constraints for table `sugestao`
+-- Limitadores para a tabela `sugestao`
 --
 ALTER TABLE `sugestao`
+  ADD CONSTRAINT `fk_apontamento_sugestao` FOREIGN KEY (`id_apon`) REFERENCES `apontamentos` (`id_apo`),
   ADD CONSTRAINT `fk_sugestao_utilizador` FOREIGN KEY (`id_utilizador`) REFERENCES `utilizadores` (`id_utilizador`),
   ADD CONSTRAINT `sugestao_ibfk_1` FOREIGN KEY (`id_utilizador`) REFERENCES `utilizadores` (`id_utilizador`);
 COMMIT;
