@@ -64,7 +64,7 @@
         }
 
         .btn {
-            background-color: white, ;
+            background-color: white !important;
             color: black;
             border: none;
             padding: 10px 20px;
@@ -75,7 +75,7 @@
         }
 
         .btn:hover {
-            background-color: #e0e0e0;
+            background-color: #e0e0e0 !important;;
         }
 
         .no-account {
