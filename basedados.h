@@ -1,19 +1,20 @@
 <?php
 
-$database = 'estantedb'
-$host = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
+define("USER_BD",      "root");
+define("PASS_BD",      "root");
+define("NOME_BD",      "estantedb");
+$hostname_conn = "localhost";
 
-
-
-function connect()
+// Conectamos ao nosso servidor MySQL
+if(!($conn = mysqli_connect($hostname_conn, USER_BD, PASS_BD))) 
 {
-    $conn = mysqli_connect($database, $dbhost, $dbuser, $dbpass);
-    
-    if(!conn)
-    {
-        die("Erro na conexão com a base de dados: " . mysqli_connect_error());
-    }
+   echo "Erro ao conectar ao MySQL.";
+   exit;
+}
+// Selecionamos nossa base de dados MySQL
+if(!($con = mysqli_select_db($conn, NOME_BD))) 
+{
+   echo "Erro ao selecionar ao MySQL.";
+   exit;
 }
 ?>

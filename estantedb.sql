@@ -35,7 +35,7 @@ CREATE TABLE `apontamentos` (
   `caminho_arquivo` varchar(255) NOT NULL,
   `descricao` text DEFAULT NULL,
   `estado_apo` enum('aprovado','pendente','negado') NOT NULL DEFAULT 'pendente',
-  `data_submissao` date NOT NULL DEFAULT curdate()
+  `data_submissao` date NOT NULL DEFAULT (CURRENT_DATE)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -49,7 +49,7 @@ CREATE TABLE `avalicao` (
   `id_apo` int(11) NOT NULL,
   `id_utilizador` int(11) NOT NULL,
   `avalicao` text NOT NULL,
-  `data_avaliacao` date NOT NULL DEFAULT curdate()
+  `data_avaliacao` date NOT NULL DEFAULT (CURRENT_DATE)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -63,7 +63,7 @@ CREATE TABLE `comentario` (
   `id_apo` int(11) NOT NULL,
   `id_utilizador` int(11) NOT NULL,
   `cometario` text DEFAULT NULL,
-  `data_comentario` date NOT NULL DEFAULT curdate()
+  `data_comentario` date NOT NULL DEFAULT (CURRENT_DATE)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -103,7 +103,7 @@ CREATE TABLE `sugestao` (
   `id_apon` int(11) NOT NULL,
   `id_utilizador` int(11) NOT NULL,
   `sugestao` text DEFAULT NULL,
-  `data_sugestao` date NOT NULL DEFAULT curdate()
+  `data_sugestao` date NOT NULL DEFAULT (CURRENT_DATE)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -119,7 +119,7 @@ CREATE TABLE `utilizadores` (
   `secretpass` varchar(20) NOT NULL,
   `cargo` enum('cliente','moderador','administrador') NOT NULL DEFAULT 'cliente',
   `estado` enum('registado','pendente','negado') NOT NULL DEFAULT 'pendente',
-  `data_registo` date NOT NULL DEFAULT curdate()
+  `data_registo` date NOT NULL DEFAULT (CURRENT_DATE)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
