@@ -113,21 +113,23 @@ include 'nav.php';
         </svg>
 
         <div class="logo">ESTante</div>
+<form action="login.php" method="GET">
 
         <div class="input-group">
             <label>Utilizador</label>
-            <input type="text" placeholder="Manuel Brito">
+            <input type="text" name="utilizador" placeholder="Manuel Brito">
         </div>
 
         <div class="input-group">
             <label>Password</label>
-            <input type="password" placeholder="******">
+            <input type="password" name="password" placeholder="******">
         </div>
 
         <button class="btn">Entrar</button>
         <button class="btn no-account">Não tenho Conta</button>
 
-        <a href="#" class="recover-password">Recuperear Password?</a>
-    </div>
+        <a href="#" class="recover-password">Recuperar Password?</a>
+    </form> 
+</div>
 </body>
 </html>
