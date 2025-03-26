@@ -64,7 +64,7 @@
         }
 
         .btn {
-            background-color: white;
+            background-color: white, ;
             color: black;
             border: none;
             padding: 10px 20px;
@@ -125,7 +125,7 @@ include 'nav.php';
             <input type="password" name="password" placeholder="******">
         </div>
 
-        <button class="btn">Entrar</button>
+        <button class="btn" type="submit">Entrar</button>
         <button class="btn no-account">Não tenho Conta</button>
 
         <a href="#" class="recover-password">Recuperar Password?</a>

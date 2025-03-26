@@ -1,32 +1,22 @@
-<html>
-    <head>
-        <title>  Registar | ESTante </title>
-    </head>
-    <body>
-        <?php
-        $pagina = 'registar';
-        include 'nav.php' ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
-    <title>Entrar | ESTante</title>
+    <title>Registar | ESTante</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             background-color: #f0f0f0;
         }
 
         .container {
+            height: 100vh;
             background-color: black;
             color: white;
             width: 350px;
@@ -104,10 +94,9 @@
 </head>
 <body>
 <?php
-$pagina = 'login';
-#include 'nav.php';
+$pagina = 'registar';
+include 'nav.php';
 ?> 
-<div class="container text-center">
     <div class="container">
 
         
@@ -123,31 +112,29 @@ $pagina = 'login';
         </svg>
 
         <div class="logo">ESTante</div>
-<form action="login.php" method="GET">
+<form action="registar.php" method="GET">
 
         <div class="input-group">
             <label>Número de aluno</label>
-            <input type="text" name="numAluno" placeholder="Número de Aluno">
+            <input type="text" name="numAluno" placeholder="20230300">
         </div>
 
         <div class="input-group">
-            <label>Nome de utilizador</label>
+            <label>Utilizador</label>
             <input type="text" name="utilizador" placeholder="Manuel Brito">
         </div>
 
         <div class="input-group">
-            <label>Password</label>
-            <input type="password" name="password" placeholder="******">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="m.brito@ipcbcampus.pt">
         </div>
-
-        <button class="btn">Avançar</button>
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="**********">
+        </div>
+        <button class="btn" type="submit">Criar conta</button>
         
-    </div>
     </form> 
 </div>
 </body>
 </html>
-    </body>
-
-</html>
-
