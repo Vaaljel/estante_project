@@ -11,14 +11,13 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             background-color: #f0f0f0;
         }
 
         .container {
+            height: 100vh;
             background-color: black;
             color: white;
             width: 350px;
@@ -97,9 +96,8 @@
 <body>
 <?php
 $pagina = 'login';
-#include 'nav.php';
+include 'nav.php';
 ?> 
-<div class="container text-center">
     <div class="container">
 
         
@@ -131,6 +129,5 @@ $pagina = 'login';
 
         <a href="#" class="recover-password">Recuperear Password?</a>
     </div>
-</div>
 </body>
 </html>
