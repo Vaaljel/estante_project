@@ -14,12 +14,6 @@ body {
     height: 100vh; /* Ocupa toda a altura da tela */
 }
 
-
-
-
-
-
-
 .main {
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */

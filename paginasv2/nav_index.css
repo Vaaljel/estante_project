@@ -31,8 +31,8 @@ header {                                        /*(navBar)*/
 }
 
 .logo-img {
-    width: 40px;  
-    height: auto;
+    width: auto;  
+    height: 30px;
     margin-right: 10px; 
 }
 

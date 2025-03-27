@@ -8,20 +8,9 @@
     <link rel="stylesheet" href="sobreNos.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="img/logo Estante.png" alt="Logo" class="logo-img">
-            ESTante
-        </div>
-        <nav>
-            <ul>
-                <li><a href="ESTante_1.html">Início</a></li>
-                <li><a href="sobreNos.html" class="active">Sobre</a></li>
-                <li><a href="esperaConfimacao.html">Entrar</a></li>
-                <li><a href="registar.html">Registar</a></li>
-            </ul>
-        </nav>
-    </header>
+    
+<?php
+include '../paginasv2/nav.php' ?>
 
     <section class="sobre">
         <div class="titulo-box">
@@ -33,7 +22,5 @@
             </p>
         </div>
     </section>
-
-    <script src="sobreNos.js"></script>
 </body>
 </html>

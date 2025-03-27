@@ -13,7 +13,7 @@
         <nav>
             <ul>
                 <li><a href="index.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">Início</a></li>
-                <li><a href="sobre.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'sobre.php' ? 'active' : ''; ?>">Sobre</a></li>
+                <li><a href="sobreNos.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'sobreNos.php' ? 'active' : ''; ?>">Sobre</a></li>
                 <li><a href="login.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'login.php' ? 'active' : ''; ?>">Entrar</a></li>
                 <li><a href="registar.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'registar.php' ? 'active' : ''; ?>">Registar</a></li>
             </ul>

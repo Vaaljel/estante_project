@@ -5,19 +5,20 @@
 
     <meta charset="UTF-8">
     <link rel="stylesheet" href="adminAprova2.css">
-    <title>Registar | ESTante</title>
+    <title>Entrar | ESTante</title>
 
 </head>
 
 <body>
     <?php
+    $pagina = 'login';
     include '../paginasv2/nav.php' ?>
 
     <main class="main">
         <div class="perfil-container">
             <div class="perfil-info">
                 <div class="logo">ESTante</div>
-                <form action="esperaConfirmacao.html" method="GET">
+                <form action="login.php" method="GET">
 
                     <div class="input-group">
                         <label>Nome de utilizador</label>
@@ -25,20 +26,10 @@
                     </div>
 
                     <div class="input-group">
-                        <label>Número de aluno</label>
-                        <input type="numero" name="numAluno" placeholder="202345">
-                    </div>
-                    <div class="input-group">
-                        <label>Email</label>
-                        <input type="email" name="email" placeholder="cu@gmail.pt">
-                    </div>
-                    <div class="input-group">
                         <label>Password</label>
                         <input type="password" name="password" placeholder="******">
                     </div>
-                    <button class="btn" type="submit">Criar conta</button>
-                   
-
+                    <button class="btn" type="submit">Entrar</button>
                     
                 </form>
 
