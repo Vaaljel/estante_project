@@ -7,8 +7,8 @@
 <body>
     <?php
 
-    include 'nav.php';
-    include 'basedados.h';
+    include './nav.php';
+    include '../basedados/basedados.h';
    
 
     if (isset($_GET['aprovar'])){

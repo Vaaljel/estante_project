@@ -1,8 +1,9 @@
 <?php
 
-define("USER_BD",      "root");
-define("PASS_BD",      "root");
-define("NOME_BD",      "estantedb");
+// Definições de constantes de conexão
+define("USER_BD", "root");
+define("PASS_BD", "");
+define("NOME_BD", "estantedb");
 $hostname_conn = "localhost";
 
 // Conectamos ao nosso servidor MySQL
