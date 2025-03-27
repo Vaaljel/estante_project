@@ -54,7 +54,7 @@ nav ul li a {
     padding: 10px 15px;
     background: white; 
     border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s; /* (Transicao do botao) */
+    transition: background-color 0.3s, color 0.3s; 
 }
 
 nav ul li a:hover {

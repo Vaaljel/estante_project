@@ -4,19 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESTante- Início</title>
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav_index.css">
 </head>
     <header>
         <div class="logo">
-            <img src="img/logo-nav.png alt="Logo" class="logo-img">
-            ESTante
+            <img src="../img/logo-nav.png" alt="Logo" class="logo-img">
         </div>
         <nav>
             <ul>
-                <li><a href="ESTante_1.html" class="active">Início</a></li>
-                <li><a href="sobreNos.html">Sobre</a></li>
-                <li><a href="esperaConfimacao.html">Entrar</a></li>
-                <li><a href="registar.html">Registar</a></li>
+                <li><a href="index.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">Início</a></li>
+                <li><a href="sobre.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'sobre.php' ? 'active' : ''; ?>">Sobre</a></li>
+                <li><a href="login.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'login.php' ? 'active' : ''; ?>">Entrar</a></li>
+                <li><a href="registar.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'registar.php' ? 'active' : ''; ?>">Registar</a></li>
             </ul>
         </nav>
     </header>

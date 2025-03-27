@@ -14,56 +14,11 @@ body {
     height: 100vh; /* Ocupa toda a altura da tela */
 }
 
-header {
-    background-color: black; /* Cor de fundo da navbar */
-    color: white;
-    display: flex;
-    justify-content: space-between; /* Espaça os itens da navbar */
-    align-items: center; /* Centraliza verticalmente os itens */
-    padding: 15px 30px;
-    width: 100%; /* Garante que a navbar ocupe toda a largura */
-}
 
-.logo {
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-}
 
-.logo-img {
-    width: 40px;
-    height: auto;
-    margin-right: 10px;
-}
 
-nav ul {
-    list-style: none;
-    display: flex; /* Mantém os itens da navbar em linha */
-    gap: 15px; /* Espaço entre os itens */
-    margin:     0; /* Remove margens padrão */
-    padding: 0; /* Remove padding padrão */
-}
 
-nav ul li {
-    display: inline; /* Garante que os itens sejam exibidos em linha */
-}
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    background: black;
-    border: 2px solid white;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 18px;
-}
-
-nav ul li a:hover {
-    background-color: white;
-    color: black;
-}
 
 .main {
     display: flex;
