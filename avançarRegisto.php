@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
-    <title>Registar | ESTante</title>
+    <title>Entrar | ESTante</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,7 +63,7 @@
         }
 
         .btn {
-            background-color: white !important;
+            background-color: white;
             color: black;
             border: none;
             padding: 10px 20px;
@@ -74,7 +74,7 @@
         }
 
         .btn:hover {
-            background-color: #e0e0e0 !important;
+            background-color: #e0e0e0;
         }
 
         .no-account {
@@ -94,8 +94,9 @@
 </head>
 <body>
 <?php
-$pagina = 'registar';
-include '../paginas/nav.php' ?>
+$pagina = 'avançar';
+include 'nav.php';
+?> 
     <div class="container">
 
         
@@ -111,28 +112,21 @@ include '../paginas/nav.php' ?>
         </svg>
 
         <div class="logo">ESTante</div>
-<form action="registar.php" method="GET">
+<form action="avançarRegisto.php" method="GET">
 
-        <div class="input-group">
-            <label>Número de aluno</label>
-            <input type="text" name="numAluno" placeholder="20230300">
-        </div>
-
-        <div class="input-group">
-            <label>Utilizador</label>
-            <input type="text" name="utilizador" placeholder="Manuel Brito">
-        </div>
-
-        <div class="input-group">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="m.brito@ipcbcampus.pt">
-        </div>
         <div class="input-group">
             <label>Password</label>
             <input type="password" name="password" placeholder="**********">
         </div>
-        <button class="btn" type="submit">Criar conta</button>
-        
+
+
+        <div class="input-group">
+            <label>Confirmar password</label>
+            <input type="password" name="password" placeholder="**********">
+        </div>
+
+        <button class="btn">Avançar</button>
+        <button class="btn">Avançar</button>
     </form> 
 </div>
 </body>
