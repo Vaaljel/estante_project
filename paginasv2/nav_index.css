@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap');          /*(importa tipo letra)*/
 
+
+/*
+NÂO MEXER POIS ESTE CÓDIGO MEXE COM A NAV BAR E O INDEX
+*/
+
 body {
     font-family: 'Sour Gummy', sans-serif; 
     background-color: white; 
