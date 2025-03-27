@@ -25,7 +25,7 @@
             </div>
 
             <div class="col">
-                <img src="./img/imagemWelcome.png" class='img-fluid ' style="height: auto; width:50%; right: 0px; bottom: 0px; position: absolute;" />
+                <img src="../img/imagemWelcome.png" class='img-fluid ' style="height: auto; width:50%; right: 0px; bottom: 0px; position: absolute;" />
             </div>
 
         </div>
