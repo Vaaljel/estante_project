@@ -46,7 +46,7 @@
                         echo ' <li class="list-group-item d-flex justify-content-between align-items-center">'
                             . $row["nome"] . ' - ' . $row["endereco"] . '
                         
-                                <button type="submit" value="'.$row["id_utilizador"].'" name="aprovar" class="btn btn-outline-primary">Aprovar</button>
+                                <button type="submit" value="'.$row["id_utilizador"].'" name="aprovar" class="btn btn-outline-success">Aprovar</button>
                                 <button type="submit" value="'.$row["id_utilizador"].'"  name="rejeitar" class="btn btn-outline-danger">Rejeitar</button>
                             </li>';
                     }
