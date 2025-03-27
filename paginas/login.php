@@ -96,8 +96,7 @@
 <body>
 <?php
 $pagina = 'login';
-include 'nav.php';
-?> 
+include '../paginas/nav.php' ?>
     <div class="container">
 
         

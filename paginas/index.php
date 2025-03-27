@@ -7,7 +7,7 @@
 <body>
     <?php
     $pagina = 'index';
-    include 'nav.php' ?>
+    include '../paginas/nav.php' ?>
 
     <div class="container text-center">
         <div class="row align-items-start" style="min-height: 80vh;">

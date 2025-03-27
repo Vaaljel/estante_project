@@ -13,16 +13,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link <?= ($pagina == 'index') ? 'active' : '' ?>" aria-current="page" href="index.php">Início</a>
+            <a class="nav-link <?= ($pagina == 'index') ? 'active' : '' ?>" aria-current="page" href="../paginas/index.php">Início</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?= ($pagina == 'sobre') ? 'active' : '' ?>" href="sobre.php">Sobre</a>
+            <a class="nav-link <?= ($pagina == 'sobre') ? 'active' : '' ?>" href="../paginas/sobre.php">Sobre</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link <?= ($pagina == 'login') ? 'active' : '' ?>" href="login.php">Entrar</a>
+            <a class="nav-link <?= ($pagina == 'login') ? 'active' : '' ?>" href="../paginas/login.php">Entrar</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link <?= ($pagina == 'registar') ? 'active' : '' ?>" href="registar.php">Registar</a>
+            <a class="nav-link <?= ($pagina == 'registar') ? 'active' : '' ?>" href="../paginas/registar.php">Registar</a>
           </li>
 
         </ul>
