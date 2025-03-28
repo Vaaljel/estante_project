@@ -19,7 +19,7 @@
                     </div>
                     <div class="input-group">
                         <label>Email</label>
-                        <input type="email" name="email" placeholder="cu@gmail.pt">
+                        <input type="email" name="email" placeholder="estante@ipcb.pt">
                     </div>
                     <button class="btn" type="submit">Criar conta</button>
                 </form>
