@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="adminAprova2.css">
+    <link rel="stylesheet" href="registar.css">
     <title>Entrar | ESTante</title>
 
 </head>
@@ -12,7 +12,7 @@
 <body>
     <?php
     $pagina = 'login';
-    include '../paginasv2/nav.php' ?>
+    include './nav.php' ?>
 
     <main class="main">
         <div class="perfil-container">

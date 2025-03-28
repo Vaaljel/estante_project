@@ -10,7 +10,7 @@
 <body>
     
 <?php
-include '../paginasv2/nav.php' ?>
+include './nav.php' ?>
 
     <section class="sobre">
         <div class="titulo-box">

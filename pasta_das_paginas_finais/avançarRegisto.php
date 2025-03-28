@@ -95,7 +95,7 @@
 <body>
 <?php
 $pagina = 'avançar';
-include 'nav.php';
+include './nav.php';
 ?> 
     <div class="container">
 

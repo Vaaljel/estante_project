@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprovar Registos - Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="adminAprova.css">
+    <link rel="stylesheet" href="adminAprova2.css">
 </head>
 <body>
     <header>
@@ -89,7 +89,5 @@
             </div>
         </div>
     </section>
-
-    <script src="script.js"></script>
 </body>
 </html>
