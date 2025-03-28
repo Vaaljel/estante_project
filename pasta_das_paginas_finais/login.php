@@ -50,7 +50,7 @@ else{
                 </div>
                 <div class="input-group">
                     <label>Secret PassWord</label>
-                    <input type="password" name="pass" placeholder="secret" required>
+                    <input type="password" name="pass" placeholder="*****" required>
                 </div>
                 <button class="btn" type="submit">Entrar</button>
                 <button class="btn" type="submit">Não tenho conta</button>
