@@ -9,7 +9,10 @@
 
     include './nav.php';
     include '../basedados/basedados.h';
-   
+    include '../pasta_das_paginas_finais/auth.php';
+
+
+    validaAdmin();
 
     if (isset($_GET['aprovar'])){
        
