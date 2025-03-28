@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     
     <meta charset="UTF-8">
@@ -100,16 +100,7 @@ include './nav.php';
     <div class="container">
 
         
-        <svg class="cat-left" viewBox="0 0 100 100">
-            <path d="M20,50 Q50,20 80,50 Q50,80 20,50" fill="white"/>
-            <circle cx="35" cy="50" r="5" fill="black"/>
-            <circle cx="65" cy="50" r="5" fill="black"/>
-        </svg>
-        <svg class="cat-right" viewBox="0 0 100 100">
-            <path d="M20,50 Q50,20 80,50 Q50,80 20,50" fill="white"/>
-            <circle cx="35" cy="50" r="5" fill="black"/>
-            <circle cx="65" cy="50" r="5" fill="black"/>
-        </svg>
+
 
         <div class="logo">ESTante</div>
 <form action="avançarRegisto.php" method="GET">

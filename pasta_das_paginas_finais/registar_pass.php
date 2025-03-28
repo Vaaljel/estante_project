@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt">
+<html>
 
 <head>
 
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="login.css">
-    <title>Entrar | ESTante</title>
-
+    <link rel="stylesheet" href="registar_all.css">
+    <title>ESTante Registar</title>
 </head>
+<?php
 
-<body>
+include "./nav.php"
 
 ?>
 
@@ -19,7 +18,7 @@
             <div class="estanteLogo">ESTante</div>
             <form action="" method="GET">
                 <div class="input-group">
-                    <label>Nome de Utilizador</label>
+                    <label>Palavra Secreta</label>
                     <input type="email" name="email" placeholder="******">
                 </div>
                 <div class="input-group">
