@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESTante- Início</title>
+    <title>Home | ESTante</title>
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -24,7 +24,7 @@
             <button class="register-btn" onclick="window.location.href='registar.html'">Registar</button>
         </div>
         
-        <img src="img/imagemWelcome.png incial.1.png" alt="Descrição" class="background-image">
+        <img src="../img/welcomev2.png" alt="Descrição" class="background-image" style="height: auto; width:50%; right: 0px; bottom: 0px; position: absolute;">
     </section>
 
     <script src="script.js"></script>
