@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap');          /*(importa tipo letra)*/
+
+.erro-container {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    gap: 50px;
+    padding: 50px;
+    height: 100vh; 
+    position: relative;
+}
+
+.erro-imagem {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    height: 100vh; 
+}
+
+.img-erro {
+    height: 100%;
+    width: auto; 
+}
+
+.erro-texto {
+    font-size: 40px;
+    line-height: 1.4;
+    max-width: 600px;
+    margin-left: auto; 
+    padding-right: 50px;
+    z-index: 1; 
+    position: relative;
+}

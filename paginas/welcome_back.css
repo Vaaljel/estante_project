@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap'); /*(importa tipo letra)*/
+
+
+.content {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    height: 80vh; 
+    gap: 50px;
+    padding: 0px;
+    position: relative; 
+}
+
+.image-container {
+    width: 50%; 
+    position: absolute;
+    top: 0;
+    left: 0; 
+    height: auto; 
+}
+
+.feed-image {
+    width: 70%; 
+    height: auto; 
+}
+
+.text-container {
+    max-width: 50%; 
+    text-align: left; 
+    z-index: 1; 
+}
+
+.text-container h1 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.text-container p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 20px 0; 
+}
+
+.feed-btn {
+    background-color: black; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 15px 30px; 
+    font-size: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Sour Gummy', sans-serif;  
+}
+
+.feed-btn:hover {
+    background-color: white; 
+    color: black; 
+    transform: scale(1.05); 
+}

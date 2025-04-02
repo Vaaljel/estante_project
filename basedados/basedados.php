@@ -8,27 +8,27 @@ define('password', ''); //password
 define('database','estantedb'); //banco de dados
 
 //Estabelecer conexão com o banco de dados
-$conexao = new mysqli( server,user,password,database);
+$conn = new mysqli( server,user,password,database);
 
 
 //Verificação se ouver um erro na conexão
-if($conexao->connect_error){
-    die("Erro na conexão: " . $conexao->connect_error);
+if($conn->connect_error){
+    die("Erro na conexão: " . $conn->connect_error);
 }
 
 // fechar conexão
 function fecharConexaoBD(){
-    global $conexao;
-    $conexao->close();
+    global $conn;
+    $conn->close();
 }
 
 //Executar SQL Query
 function executarQuery($sql){
-    global $conexao;
-    $resultado = $conexao->query($sql);
+    global $conn;
+    $resultado = $conn->query($sql);
 
     if(!$resultado){
-        echo "Erro na execução da query: " . $conexao->error;
+        echo "Erro na execução da query: " . $conn->error;
         return false;
     }
     return $resultado;
@@ -37,8 +37,8 @@ function executarQuery($sql){
 
 // Prevenir SQL Injection
 function escaparString($valor){
-    global $conexao;
-    return $conexao->real_escape_string($valor);
+    global $conn;
+    return $conn->real_escape_string($valor);
 }
 
 ?>

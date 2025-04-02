@@ -1,43 +1,48 @@
+<html>
+
 <head>
-    <meta charset="UTF-8">
+    <title>ESTante | registar.php</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="registar_all.css">
-    <title>Registar | ESTante</title>
 </head>
 
 <body>
     <?php
-    include './nav.php';
+    require_once './nav.php';
 
-    require_once '../basedados/basedados.h';
-    require_once './auth.php';
-    
-    if(isLoggedIn()){
+    require_once '../basedados/basedados.php';
+    require_once '../basedados/auth.php';
+
+    if (isLoggedIn()) {
         header("Location: teste.php");
         exit;
     }
-    
-    if(isset($_GET["name"])){
-        if($_GET['password'] != $_GET['confirmar_password']){
+    //Verifica se recebeu todos os dados do formulário se não envia a mensagem não preecheu
+    if (isset($_POST["name"]) && isset($_POST["email"])
+    && isset($_POST["password"]) && isset($_POST["confirmar_password"])) {        
+        //Verifica se as passwords coincidem caso não, não avança para o próximo passo
+        if ($_POST['password'] != $_POST['confirmar_password']) {
             echo "PassWords não coincidem";
+            header(header: "Location: registar.php");
             exit;
         }
-        if(createUser($_GET["name"], $_GET['email'], $_GET['password'])){
+        //Chama a função responsavel pelo insert
+        if (createUser($_POST["name"], $_POST['email'], $_GET['password'])) {
             header(header: "Location: pagina_espera.php");
             exit;
+        } else {
+            echo "Não conseguiu inserir dados";
         }
-        else {
-            echo "shii";
-        }
-    }
-    else{
-        echo "No data";
+    } else {
+        echo "Não preecheu os dados";
     }
     ?>
     <main class="main">
         <div class="perfil-container">
             <div class="perfil-info">
                 <div class="logo">ESTante</div>
-                <form action="" method="GET">
+                <form method="POST">
                     <div class="input-group">
                         <label>Nome de utilizador</label>
                         <input type="text" name="name" placeholder="Manuel Brito">
@@ -54,11 +59,11 @@
                         <label>Confirmar Password Secreta</label>
                         <input type="password" name="confirmar_password" placeholder="******">
                     </div>
-                    <button class="btn" type="submit">Criar conta</button>
+                    <button class="btn" type="submit">Entrar</button>
                 </form>
             </div>
         </div>
-        </div>
+    </main>
 </body>
 
 </html>

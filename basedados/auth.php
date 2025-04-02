@@ -1,5 +1,5 @@
 <?php
-    require_once '../basedados/basedados2.php';
+    require_once 'basedados.php';
     
     if(session_status() == PHP_SESSION_NONE){
         session_start();
@@ -16,7 +16,11 @@
         // Busca o utilizador no banco de dados
         $sql = "SELECT* FROM utilizadores WHERE nome = '$nome'";
         $resultado = executarQuery($sql);
-        print_r ($resultado);
+        
+        //Adicionado para debug!!
+        //print_r ($resultado); 
+
+
         //Verificar se o utilizador foi encontrado
         if($resultado && $resultado->num_rows == 1){
             $utilizador = $resultado->fetch_assoc();
@@ -41,6 +45,7 @@
     //  Cria utilizador (default cliente)
 
 
+//Função para verificar as permições(?) & e dar o nível de acesso dependedo do cargo ao site
 function validaAdmin(){
     if($_SESSION['cargo'] != 'administrador'){
         header(header:"Location: erro.php");
@@ -58,6 +63,9 @@ function createUser($nome, $endereco, $secretpass){
     //XCriptografar a senha antes de armazenar no banco de dados
     //$hash_password = password_hash($secretpass, PASSWORD_DEFAULT);
 
+
+    //Adicionar HASHING
+
     // Criar a quaery SQL para inserir o novo utilizador
     $sql = "INSERT INTO UTILIZADORES (nome, endereco, secretpass )
             VALUES ('$nome', '$endereco', '$secretpass' )";
@@ -65,11 +73,15 @@ function createUser($nome, $endereco, $secretpass){
     //Executa a Query
     $resultado  = executarQuery($sql);
 
-    //Verifica se a inserção foi bem-sucedida
+    //Adicionado para debug!!
+    //print_r ($resultado); 
+
+
+    //Verifica se conseguiu fazer o insert
     if($resultado){
-        return true; //suicesso
+        return true; //Sucesso
     } else {
-        return false; // falha ao criar
+        return false; // Caso Erro
     }
 }
 

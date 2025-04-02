@@ -1,21 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap');
 
-.hero {
+.layout {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 90%;
-    /* Ensures it fills the viewport */
+    height: 94%;
     position: relative;
     overflow: hidden;
 }
 
-.hero img {
-    max-height: 100%;
-    object-fit: contain;
-    position: absolute;
 
+.background-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: block;
 }
+
 
 .text-box {
     max-width: 50%;
@@ -39,7 +44,6 @@
     margin: 10px 0;
 }
 
-/*(Botao Registar)*/
 .register-btn {
     background-color: black;
     color: white;
