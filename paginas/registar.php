@@ -24,7 +24,8 @@
         && isset($_POST["password"]) && isset($_POST["confirmar_password"])
     ) {
         //Verifica se o email contem o endereço certo para se registar
-        if (!preg_match("/@ipcb\.pt$/", $_POST["email"])) {
+        if (!preg_match("/@ipcb\.pt$/", $_POST["email"]) 
+        && !preg_match("/@ipcbcampus\.pt$/", $_POST["email"]) ) {
             echo "Apenas emails @ipcb.pt são permitidos!";
             header(header: "Location: registar.php");
             exit;
