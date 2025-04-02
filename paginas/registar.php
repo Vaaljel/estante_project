@@ -19,8 +19,16 @@
         exit;
     }
     //Verifica se recebeu todos os dados do formulário se não envia a mensagem não preecheu
-    if (isset($_POST["name"]) && isset($_POST["email"])
-    && isset($_POST["password"]) && isset($_POST["confirmar_password"])) {        
+    if (
+        isset($_POST["name"]) && isset($_POST["email"])
+        && isset($_POST["password"]) && isset($_POST["confirmar_password"])
+    ) {
+        //Verifica se o email contem o endereço certo para se registar
+        if (!preg_match("/@ipcb\.pt$/", $_POST["email"])) {
+            echo "Apenas emails @ipcb.pt são permitidos!";
+            header(header: "Location: registar.php");
+            exit;
+        }
         //Verifica se as passwords coincidem caso não, não avança para o próximo passo
         if ($_POST['password'] != $_POST['confirmar_password']) {
             echo "PassWords não coincidem";
@@ -28,7 +36,7 @@
             exit;
         }
         //Chama a função responsavel pelo insert
-        if (createUser($_POST["name"], $_POST['email'], $_GET['password'])) {
+        if (createUser($_POST["name"], $_POST['email'], $_POST['password'])) {
             header(header: "Location: pagina_espera.php");
             exit;
         } else {
@@ -65,5 +73,4 @@
         </div>
     </main>
 </body>
-
 </html>
