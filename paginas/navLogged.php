@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="nav.css">
@@ -10,8 +9,8 @@
     </div>
     <nav>
         <ul>
-            <?php
-             ?>
+            <li><a href="index.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">Início</a></li>
+            <li><a href="index.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">Início</a></li>
             <li><a href="index.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">Início</a></li>
             <li><a href="sobre.php" class="<?php echo basename(path: $_SERVER['PHP_SELF']) == 'sobre.php' ? 'active' : ''; ?>">Sobre</a></li>
             <li><a href="login.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'login.php' ? 'active' : ''; ?>">Entrar</a></li>
@@ -19,5 +18,4 @@
         </ul>
     </nav>
 </header>
-
 </html>

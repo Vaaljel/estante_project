@@ -19,7 +19,7 @@ require_once "./nav.php";
         <div class="text-container">
             <h1>Bem vindo de volta (Nome).</h1> <!-- No futuro detetar o nome com php-->
             <h2>Comece já a navegar!</h2>
-            <button class="feed-btn">Feed</button>
+            <button href="testLogout.php" class="feed-btn">Feed</button>
         </div>
     </section>
 </body>

@@ -10,41 +10,51 @@
 <body>
     <?php
     require_once './nav.php';
-
     require_once '../basedados/basedados.php';
     require_once '../basedados/auth.php';
 
+    //Test
     if (isLoggedIn()) {
         header("Location: teste.php");
         exit;
     }
+
     //Verifica se recebeu todos os dados do formulário se não envia a mensagem não preecheu
     if (
-        isset($_POST["name"]) && isset($_POST["email"])
-        && isset($_POST["password"]) && isset($_POST["confirmar_password"])
+        isset($_POST["name"]) && isset($_POST["email"]) &&
+        isset($_POST["password"]) && isset($_POST["confirmar_password"])
     ) {
+
         //Verifica se o email contem o endereço certo para se registar
-        if (!preg_match("/@ipcb\.pt$/", $_POST["email"]) 
-        && !preg_match("/@ipcbcampus\.pt$/", $_POST["email"]) ) {
-            echo "Apenas emails @ipcb.pt são permitidos!";
-            header(header: "Location: registar.php");
+        if (
+            !preg_match("/@ipcb\.pt$/", $_POST["email"]) &&
+            !preg_match("/@ipcbcampus\.pt$/", $_POST["email"])
+        ) {
+            //Erro (Neste caso só endereços @ipcb.pt ou @ipcbcampus.pt)
+            header("Location: registar.php");
             exit;
         }
+
         //Verifica se as passwords coincidem caso não, não avança para o próximo passo
         if ($_POST['password'] != $_POST['confirmar_password']) {
-            echo "PassWords não coincidem";
-            header(header: "Location: registar.php");
+            //passwords não coincidem
+            header("Location: registar.php?error=password_mismatch");
+            exit;
+        } else if (empty($_POST['password']) || empty($_POST['confirmar_password'])) {
+            header("Location: registar.php?error=empty_password");
             exit;
         }
+
         //Chama a função responsavel pelo insert
         if (createUser($_POST["name"], $_POST['email'], $_POST['password'])) {
-            header(header: "Location: pagina_espera.php");
+            header("Location: pagina_espera.php");
             exit;
         } else {
-            echo "Não conseguiu inserir dados";
+            header("location: registar.php?error=problema=a=criar=conta");
+            exit;
         }
-    } else {
-        echo "Não preecheu os dados";
+    } else if($_SERVER["REQUEST_METHOD"] == "POST") {
+        header("Location: registar.php?error=não=preencheu=todos=os=dados");
     }
     ?>
     <main class="main">
@@ -54,7 +64,7 @@
                 <form method="POST">
                     <div class="input-group">
                         <label>Nome de utilizador</label>
-                        <input type="text" name="name" placeholder="Manuel Brito">
+                        <input type="text" name="name" placeholder="nome">
                     </div>
                     <div class="input-group">
                         <label>Email</label>
@@ -68,10 +78,11 @@
                         <label>Confirmar Password Secreta</label>
                         <input type="password" name="confirmar_password" placeholder="******">
                     </div>
-                    <button class="btn" type="submit">Entrar</button>
+                    <button class="btn" type="submit">Registar</button>
                 </form>
             </div>
         </div>
     </main>
 </body>
+
 </html>

@@ -4,7 +4,7 @@
     <title>ESTante | Aprovacao</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="teste_admin.css">
+    <link rel="stylesheet" href="admin_aprova.css">
 </head>
 
 <body>
@@ -22,8 +22,13 @@
     }
     if (isset($_POST['rejeitar'])) {
         $id = intval($_POST['rejeitar']);
+
         $sql = "UPDATE `utilizadores` SET `estado` = 'negado' WHERE `utilizadores`.`id_utilizador` = " . $id;
         $result = $conn->query($sql);
+
+        $sql = "DELETE FROM utilizadores WHERE estado = 'negado' AND id_utilizador = $id";
+        $result = $conn->query($sql);
+
     }
     ?>
     

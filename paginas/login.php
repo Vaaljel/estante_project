@@ -26,10 +26,11 @@ if (isset($_POST["user"])) {
         header(header: "Location: welcome_back.php"); //Se sucesso entra no site
         exit;
     } else {
-        echo "Não encontro dados iguais"; //Caso Erro
+        header(header: "Location: login.php"); //Erro não conseguiu entrar
+        
     }
-} else {
-    echo "Algo correu mal na conexão"; //Caso Erro
+} else if($_SERVER["REQUEST_METHOD"] == "POST") {
+    header("Location: pagina_erro.php");
 }
 
 //Adicionar mais tarde aviso no html que falhou e caso isto aconteça não mude de página
@@ -53,7 +54,7 @@ if (isset($_POST["user"])) {
                         <input type="password" name="pass" placeholder="*****" required>
                     </div>
                     <button class="btn" type="submit">Entrar</button>
-                    <button href="registar.php" class="btn" type="submit">Não tenho conta</button>
+                    <button onclick="window.location.href='registar.php'" class="btn">Não tenho conta</button>
                 </form>
             </div>
             <br>
