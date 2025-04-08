@@ -6,12 +6,15 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+//melhorar isto
 function isLoggedIn(): bool
 {
     //checkRole();
     return isset($_SESSION["id_utilizador"]);
 }
 
+
+//Ideia mas talvez usar um define para isto não seria má ideia
 function checkRole()
 {
 
@@ -33,12 +36,15 @@ function checkRole()
 function login($nome, $endereco, $pass)
 {
     //Escapa o nome de utilizador para evitar SQL injection
-    $nome = escaparString($endereco);
+    $nome = escaparString($nome);
+    $endereco = escaparString($endereco);
+    $pass = escaparString($pass);
+    $estado = "registado";
 
     // Busca o utilizador no banco de dados
     $sql = "SELECT* FROM utilizadores WHERE endereco = '$endereco' 
     AND nome = '$nome' 
-    AND secretpass = '$pass'";
+    AND estado = '$estado'";
     $resultado = executarQuery($sql);
 
     //Adicionado para debug!!
@@ -56,8 +62,11 @@ function login($nome, $endereco, $pass)
             // Suceso
             $_SESSION['user_id'] = $utilizador['ID'];
             $_SESSION['cargo'] = $utilizador['cargo'];
-            print_r($utilizador);
+            //print_r($utilizador);
             return true;
+        }
+        if($estado != "registado"){
+            echo "Erro o utilizador ainda não foi aprovado ou não existe";
         }
     }
 

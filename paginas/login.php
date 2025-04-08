@@ -6,35 +6,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="login.css">
 </head>
-
-</head>
 <?php
-include "./nav.php";
-
-require_once '../basedados/basedados.php';
-require_once '../basedados/auth.php';
-
-//Se ele estiver já na condição de login ele redireciona para a página do feed
-if (isLoggedIn()) {
-    header("Location: welcome_back.php");
-    exit;
-}
-
-//Verifica se consegue entrar
-if (isset($_POST["user"])) {
-    if (login($_POST["user"], $_POST["endereco"], $_POST["pass"])) {
-        header(header: "Location: welcome_back.php"); //Se sucesso entra no site
-        exit;
-    } else {
-        header(header: "Location: login.php"); //Erro não conseguiu entrar
-        
-    }
-} else if($_SERVER["REQUEST_METHOD"] == "POST") {
-    header("Location: pagina_erro.php");
-}
-
-//Adicionar mais tarde aviso no html que falhou e caso isto aconteça não mude de página
+require_once './nav.php'
 ?>
+
 
 <body>
     <div class="logo-container">
@@ -45,6 +20,34 @@ if (isset($_POST["user"])) {
             <div class="perfil-info">
                 <div class="estanteLogo">ESTante</div>
                 <form method="POST">
+                    <?php
+
+                    require_once '../basedados/basedados.php';
+                    require_once '../basedados/auth.php';
+
+                    //Se ele estiver já na condição de login ele redireciona para a página do feed
+                    if (isLoggedIn()) {
+                        header("Location: welcome_back.php");
+                        exit;
+                    }
+
+                    //Verifica se consegue entrar
+                    if (isset($_POST["user"])) {
+                        if (login($_POST["user"], $_POST["endereco"], $_POST["pass"])) {
+                            header(header: "Location: welcome_back.php"); //Se sucesso entra no site
+                            exit;
+                        } else {
+                            //header(header: "Location: login.php"); //Erro não conseguiu entrar
+                            echo '<div class="input-group">
+                                    <label>Falha ao entrar</label>
+                                </div>';
+                        }
+                    } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        header("Location: pagina_erro.php");
+                    }
+
+                    //Adicionar mais tarde aviso no html que falhou e caso isto aconteça não mude de página
+                    ?>
                     <div class="input-group">
                         <label>Nome do Utilizador</label>
                         <input type="text" name="user" placeholder="nome" required>
