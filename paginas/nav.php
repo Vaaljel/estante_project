@@ -4,6 +4,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="nav.css">
 </head>
+
 <header>
     <div class="logo">
         <img src="../img/logo-nav.png" alt="Logo" class="logo-img">

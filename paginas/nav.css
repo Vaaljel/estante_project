@@ -53,3 +53,9 @@ nav ul li a.active {
     background-color: black;
     color: white;
 }
+
+.LE-BUTTON:hover,
+.LE-BUTTON.active {
+    background-color: white;
+    color: red;
+}

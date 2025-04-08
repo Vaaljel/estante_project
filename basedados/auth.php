@@ -30,13 +30,15 @@ function checkRole()
     }
 }
 
-function login($nome, $pass)
+function login($nome, $endereco, $pass)
 {
     //Escapa o nome de utilizador para evitar SQL injection
-    $nome = escaparString($nome);
+    $nome = escaparString($endereco);
 
     // Busca o utilizador no banco de dados
-    $sql = "SELECT* FROM utilizadores WHERE nome = '$nome'";
+    $sql = "SELECT* FROM utilizadores WHERE endereco = '$endereco' 
+    AND nome = '$nome' 
+    AND secretpass = '$pass'";
     $resultado = executarQuery($sql);
 
     //Adicionado para debug!!
@@ -54,7 +56,7 @@ function login($nome, $pass)
             // Suceso
             $_SESSION['user_id'] = $utilizador['ID'];
             $_SESSION['cargo'] = $utilizador['cargo'];
-
+            print_r($utilizador);
             return true;
         }
     }

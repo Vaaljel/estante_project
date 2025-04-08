@@ -22,7 +22,7 @@ if (isLoggedIn()) {
 
 //Verifica se consegue entrar
 if (isset($_POST["user"])) {
-    if (login($_POST["user"], $_POST["pass"])) {
+    if (login($_POST["user"], $_POST["endereco"], $_POST["pass"])) {
         header(header: "Location: welcome_back.php"); //Se sucesso entra no site
         exit;
     } else {
@@ -48,6 +48,10 @@ if (isset($_POST["user"])) {
                     <div class="input-group">
                         <label>Nome do Utilizador</label>
                         <input type="text" name="user" placeholder="nome" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" name="endereco" placeholder="nome" required>
                     </div>
                     <div class="input-group">
                         <label>Secret PassWord</label>

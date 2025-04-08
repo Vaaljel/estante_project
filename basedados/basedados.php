@@ -4,7 +4,11 @@
 
 define('server', 'localhost'); // meu computador
 define('user', 'root'); // user
-define('password', ''); //password
+define('password', ''); //CASO ERRO mudar palavra pass
+
+//MAMP = "ROOT"
+//XAMP = ""
+
 define('database','estantedb'); //banco de dados
 
 //Estabelecer conexão com o banco de dados
