@@ -86,16 +86,22 @@ function logout()
 //  Cria utilizador (default cliente)
 
 
-//Função para verificar as permições(?) & e dar o nível de acesso dependedo do cargo ao site
-function validaAdmin()
-{
-    if ($_SESSION['cargo'] != 'administrador') {
+function validaCliente(){
+    if($_SESSION['cargo'] != 'cliente'){
         header("Location: erro.php");
     }
 }
 
-function validaCliente(){
-    if($_SESSION['cargo'] != 'cliente'){
+function validaMod(){
+    if($_SESSION['cargo'] != 'moderador'){
+        header("Location: erro.php");
+    }
+}
+
+//Função para verificar as permições(?) & e dar o nível de acesso dependedo do cargo ao site
+function validaAdmin()
+{
+    if ($_SESSION['cargo'] != 'administrador') {
         header("Location: erro.php");
     }
 }

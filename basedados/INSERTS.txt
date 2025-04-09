@@ -1,0 +1,21 @@
+INSERT INTO apontamentos (id_utilizador, id_disciplina, titulo, caminho_arquivo, descricao, estado_apo, data_submissao) VALUES
+(1, 1, 'Apostila PHP', '/uploads/apostila_php.pdf', 'Conteúdo introdutório de PHP.', 'aprovado', CURRENT_DATE),
+(1, 2, 'ER Modelo', '/uploads/modelo_er.png', 'Exemplo de modelo entidade-relacionamento.', 'pendente', CURRENT_DATE);
+
+
+
+INSERT INTO disciplina (id_curso, nome, codigo, descricao) VALUES
+(1, 'Programação Web', 201, 'Aprendizagem de desenvolvimento web com PHP, HTML e CSS.'),
+(1, 'Bases de Dados', 202, 'Modelagem e gestão de bases de dados relacionais.'),
+(2, 'Tipografia', 301, 'Estudo da aplicação e estética das fontes tipográficas.');
+
+
+INSERT INTO utilizadores (nome, endereco, secretpass, cargo, estado, data_registo) VALUES
+('joaosilva', 'joao@email.com', 'senha123', 'cliente', 'registado', CURRENT_DATE),
+('anaadmin', 'ana@email.com', 'admin456', 'administrador', 'registado', CURRENT_DATE),
+('carlomoder', 'carlo@email.com', 'modpass', 'moderador', 'pendente', CURRENT_DATE);
+
+
+INSERT INTO curso (nome, codigo) VALUES
+('Engenharia Informática', 101),
+('Design Gráfico', 102);

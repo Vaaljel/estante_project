@@ -34,7 +34,7 @@
                 <?php
                 // Consulta para buscar apontamentos com nome do utilizador e disciplina
                 $sql = "SELECT a.*, u.nome AS nome_utilizador, d.nome AS nome_disciplina 
-                        FROM apontamento a
+                        FROM apontamentos a
                         INNER JOIN utilizadores u ON a.id_utilizador = u.id_utilizador
                         INNER JOIN disciplina d ON a.id_disciplina = d.id_disciplina
                         ORDER BY a.data_submissao DESC";
