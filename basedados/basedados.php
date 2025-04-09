@@ -31,6 +31,7 @@ function executarQuery($sql){
     global $conn;
     $resultado = $conn->query($sql);
 
+
     if(!$resultado){
         echo "Erro na execução da query: " . $conn->error;
         return false;

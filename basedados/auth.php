@@ -65,8 +65,10 @@ function login($nome, $endereco, $pass)
             //print_r($utilizador);
             return true;
         }
-        if($estado != "registado"){
-            echo "Erro o utilizador ainda não foi aprovado ou não existe";
+        if ($estado != "registado") {
+            echo '<div class="input-group">
+                <label>Endereço Invalido</label>
+            </div>';
         }
     }
 
@@ -88,9 +90,16 @@ function logout()
 function validaAdmin()
 {
     if ($_SESSION['cargo'] != 'administrador') {
-        header(header: "Location: erro.php");
+        header("Location: erro.php");
     }
 }
+
+function validaCliente(){
+    if($_SESSION['cargo'] != 'cliente'){
+        header("Location: erro.php");
+    }
+}
+
 
 function createUser($nome, $endereco, $secretpass)
 {

@@ -7,6 +7,8 @@
 }
 
 body {
+    font-family: 'Sour Gummy', sans-serif;
+    background-color: white;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -39,6 +41,38 @@ body {
 .input-group {
     margin-bottom: 15px;
     text-align: left;
+}
+
+.imagem-canto-superior {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.imagem-superior {
+    width: 160px;
+    height: auto;
+    border-radius: 10px;
+}
+.imagem-canto-inferior {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+.imagem-inferior {
+    width: 360px;
+    height: auto;
+    border-radius: 10px;
+}
+.imagem-lateral {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.imagem-lateral img {
+    width: 160px;
+    height: auto;
+    border-radius: 10px;
 }
 
 input {

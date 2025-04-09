@@ -12,8 +12,6 @@ require_once './nav.php'
 
 
 <body>
-    <div class="logo-container">
-    </div>
 
     <main class="main">
         <div class="perfil-container">
@@ -67,8 +65,13 @@ require_once './nav.php'
             <br>
             <a href="">Recuperar conta</a>
         </div>
+        <div class="imagem-canto-superior">
+            <img src="../img/estrelas.png" alt="Decoração" class="imagem-superior">
+        </div>
+        <div class="imagem-lateral">
+            <img src="../img/estrelas.png" alt="Decoração">
+        </div>
     </main>
-
 </body>
 
 </html>
