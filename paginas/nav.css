@@ -66,3 +66,15 @@ nav ul li a.perfil {
 .perfil-img {
 height: 24px;
 }
+.logout-btn {
+    background-color: #ff3333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.logout-img {
+    height: 16px;
+}
