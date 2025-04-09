@@ -10,7 +10,7 @@ if (session_status() == PHP_SESSION_NONE) {
 function isLoggedIn(): bool
 {
     //checkRole();
-    return isset($_SESSION["id_utilizador"]);
+    return isset($_SESSION["user_id"]);
 }
 
 
@@ -60,7 +60,7 @@ function login($nome, $endereco, $pass)
         // Verifica se a senha está correta
         if (isset($utilizador['secretpass']) && $pass == $utilizador['secretpass']) {
             // Suceso
-            $_SESSION['user_id'] = $utilizador['ID'];
+            $_SESSION['user_id'] = $utilizador['id_utilizador'];
             $_SESSION['cargo'] = $utilizador['cargo'];
             //print_r($utilizador);
             return true;
@@ -155,6 +155,6 @@ function createUser($nome, $endereco, $secretpass)
 
 function getUser()
 {
-    $result = executarQuery("SELECT * UTILIZADORES WHERE ID = " . $_SESSION['user_id']);
+    $result = executarQuery("SELECT * from UTILIZADORES WHERE id_utilizador = " . $_SESSION['user_id']);
     return $result->fetch_assoc();
 }

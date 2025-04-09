@@ -54,8 +54,15 @@ nav ul li a.active {
     color: white;
 }
 
+nav ul li a.perfil {
+    background: black;
+}
 .LE-BUTTON:hover,
 .LE-BUTTON.active {
     background-color: white;
     color: red;
+}
+
+.perfil-img {
+height: 24px;
 }
