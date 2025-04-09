@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
 <head>
-    <title>ESTante | Feed</title>
+    <title>ESTante | Feed Moderador</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="feed.css">
+    <link rel="stylesheet" href="feed_aprovacao.css">
 </head>
 
 <body>
@@ -12,6 +12,19 @@
     require_once './nav.php';
     require_once '../basedados/basedados.php';
     require_once '../basedados/auth.php';
+        //validaAdmin();
+
+    // Processamento de possíveis ações nos apontamentos
+    if (isset($_POST['aprovar'])) {
+        $id = intval($_POST['aprovar']);
+        $sql = "UPDATE `apontamentos` SET `estado_apo` = 'aprovado' WHERE `apontamentos`.`id_apo` = " . $id;
+        $result = $conn->query($sql);
+    }
+    if (isset($_POST['rejeitar'])) {
+        $id = intval($_POST['rejeitar']);
+        $sql = "UPDATE `apontamentos` SET `estado_apo` = 'negado' WHERE `apontamentos`.`id_apo` = " . $id;
+        $result = $conn->query($sql);
+    }
     ?>
 
     <div class="main">
@@ -23,7 +36,7 @@
                         FROM apontamentos a
                         INNER JOIN utilizadores u ON a.id_utilizador = u.id_utilizador
                         INNER JOIN disciplina d ON a.id_disciplina = d.id_disciplina
-                        WHERE a.estado_apo = 'aprovado'
+                        WHERE a.estado_apo = 'pendente'
                         ORDER BY a.data_submissao DESC";
 
                 $result = $conn->query($sql);
@@ -61,6 +74,12 @@
                     <strong>' . $row["nome_utilizador"] . '›</strong>
                         ' . $row["descricao"] . '
                     </div>
+                     <div class="acoes">
+                                <form class="acoes" method="post">
+                                    <button type="submit" value="' . $row["id_apo"] . '" name="aprovar" class="approve">Aprovar</button>
+                                    <button type="submit" value="' . $row["id_apo"] . '" name="rejeitar" class="deny">Rejeitar</button>
+                                </form>
+                            </div>
                 </div>
                         ';
                         #echo '<li class="list-group-item">

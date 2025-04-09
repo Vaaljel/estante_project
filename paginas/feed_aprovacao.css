@@ -197,3 +197,9 @@ h2 {
     display: block;
     margin-bottom: 5px;
   }
+
+  .acoes {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 5px
+  }
