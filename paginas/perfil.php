@@ -9,7 +9,7 @@
 </head>
 
 <?php 
-require_once "./navLogged.php";
+require_once "./nav.php";
 require_once '../basedados/basedados.php';
 require_once '../basedados/auth.php';
 

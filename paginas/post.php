@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Publicar Apontamento</title>
-  <link rel="stylesheet" href="paginas_DIOGO/post.css">
+  <link rel="stylesheet" href="post.css">
   <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-
+<?php
+require_once './nav.php';
+require_once '../basedados/basedados.php';
+require_once '../basedados/auth.php';
+?>
  
 
   <div class="page-container">
