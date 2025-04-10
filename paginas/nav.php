@@ -33,7 +33,7 @@
                 echo '<li><a href="perfil.php" class="' . (basename($_SERVER['PHP_SELF']) == 'perfil.php' ? 'active' : '') . ' perfil"><img src="../img/perfil-nav.png" alt="Logo" class="perfil-img"></a></li>';
                 
                 // Red logout button with icon
-                echo '<li><a href="logout.php" class="logout-btn"><img src="../img/logout-icon.png" alt="x" class="logout-img"></a></li>';
+                echo '<li><a href="testLogout.php" class="logout-btn"><img src="../img/logout-icon.png" alt="x" class="logout-img"></a></li>';
             } else {
                 echo '<li><a href="index.php" class="' . (basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '') . '">Início</a></li>';
 
