@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="feed.css">
+    <style>
+        .submit-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: black;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 2px solid white;
+        }
+        
+        .submit-button:hover {
+            transform: scale(1.1);
+            background-color: #333;
+        }
+    </style>
 </head>
 
 <body>
@@ -92,6 +118,11 @@
         <div class="imagem-lateral">
             <img src="../img/estrelas.png" alt="Decoração">
         </div>
+        
+        <!-- Botão de submissão de apontamento -->
+        <?php if (isLoggedIn()): ?>
+        <a href="submeter_post.php" class="submit-button" title="Submeter Apontamento">+</a>
+        <?php endif; ?>
     </div>
 </body>
 

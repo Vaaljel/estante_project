@@ -32,8 +32,8 @@ require_once '../basedados/auth.php';
                     }
 
                     //Verifica se consegue entrar
-                    if (isset($_POST["user"])) {
-                        if (login($_POST["user"], $_POST["endereco"], $_POST["pass"])) {
+                    if (isset($_POST["endereco"])) {
+                        if (login($_POST["endereco"], $_POST["pass"])) {
                             header(header: "Location: welcome_back.php"); //Se sucesso entra no site
                             exit;
                         } else {
@@ -49,15 +49,11 @@ require_once '../basedados/auth.php';
                     //Adicionar mais tarde aviso no html que falhou e caso isto aconteça não mude de página
                     ?>
                     <div class="input-group">
-                        <label>Nome do Utilizador</label>
-                        <input type="text" name="user" placeholder="nome" required>
-                    </div>
-                    <div class="input-group">
                         <label>Email</label>
                         <input type="email" name="endereco" placeholder="nome" required>
                     </div>
                     <div class="input-group">
-                        <label>Secret PassWord</label>
+                        <label>Password</label>
                         <input type="password" name="pass" placeholder="*****" required>
                     </div>
                     <button class="btn" type="submit">Entrar</button>

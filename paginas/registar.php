@@ -90,7 +90,7 @@ require_once './nav.php';
                         <input type="password" name="password" placeholder="******">
                     </div>
                     <div class="input-group">
-                        <label>Confirmar Password Secreta</label>
+                        <label>Confirmar Password</label>
                         <input type="password" name="confirmar_password" placeholder="******">
                     </div>
                     <button class="btn" type="submit">Registar</button>

@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+  
 <?php
 require_once './nav.php';
 require_once '../basedados/basedados.php';

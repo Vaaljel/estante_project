@@ -33,27 +33,29 @@ function checkRole()
     }
 }
 
-function login($nome, $endereco, $pass)
+function login( $endereco, $pass)
 {
     //Escapa o nome de utilizador para evitar SQL injection
-    $nome = escaparString($nome);
+    
     $endereco = escaparString($endereco);
     $pass = escaparString($pass);
     $estado = "registado";
 
     // Busca o utilizador no banco de dados
-    $sql = "SELECT* FROM utilizadores WHERE endereco = '$endereco' 
-    AND nome = '$nome' 
+    $sql = "SELECT * FROM utilizadores
+    WHERE endereco = '$endereco' 
     AND estado = '$estado'";
+
     $resultado = executarQuery($sql);
 
     //Adicionado para debug!!
-    //print_r ($resultado); 
+    print_r ($resultado); 
 
 
     //Verificar se o utilizador foi encontrado
-    if ($resultado && $resultado->num_rows == 1) {
+    if ($resultado && $resultado->num_rows >= 1) {
         $utilizador = $resultado->fetch_assoc();
+        print_r ($utilizador); 
 
         // if(isset($utilizador['secretpass']) && password_verify($pass, $utilizador['secretpass'])){
 

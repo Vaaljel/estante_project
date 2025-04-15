@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap');
+
+body {
+  font-family: 'Sour Gummy', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+.page-container {
+  display: flex;
+  height: 100vh;
+}
+
+.post-bloco-esquerdo {
+  width: 50%;
+  background-color: #1a1a1a;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.imagem-terminal {
+  width: 100%;
+  height: auto;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.avaliacao {
+  margin-top: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+.estrelas {
+  display: inline-block;
+  direction: rtl;
+}
+
+.estrelas input {
+  display: none;
+}
+
+.estrelas label {
+  font-size: 30px;
+  color: #ccc;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.estrelas input:checked ~ label,
+.estrelas label:hover,
+.estrelas label:hover ~ label {
+  color: gold;
+}
+
+.post-bloco-direito {
+  width: 50%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.descricao {
+  background: black;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.botoes-switch button {
+  font-family: 'Sour Gummy', sans-serif;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: white;
+}
+
+.botoes-switch .ativo {
+  background: black;
+  color: white;
+}
+
+.comentario {
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.remover {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
