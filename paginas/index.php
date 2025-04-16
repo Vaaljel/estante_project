@@ -1,4 +1,11 @@
-<html>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pt">
 
 <head>
 
@@ -17,14 +24,14 @@ require_once './nav.php'
         <h1>O melhor lugar para partilhar conhecimento!</h1>
         <hr class="divisor">
         <p>
-        Encontra, partilha e colabora com os melhores apontamentos para o teu sucesso académico na EST.
-        Acede a resumos, fichas e materiais de estudo feitos por estudantes para estudantes como tu.
+            Encontra, partilha e colabora com os melhores apontamentos para o teu sucesso académico na EST.
+            Acede a resumos, fichas e materiais de estudo feitos por estudantes para estudantes como tu.
 
-        Simplifica a tua aprendizagem e melhora as tuas notas com a nossa comunidade! 🚀📖
-
+            Simplifica a tua aprendizagem e melhora as tuas notas com a nossa comunidade! 🚀📖
         </p>
         <button class="register-btn" onclick="window.location.href='registar.php'">Registar</button>
-        <button class="register-btn" onclick="window.location.href='admin_aprova.php'">Botão Catarina</button>
+        <button class="register-btn" onclick="window.location.href='admin_aprova.php'">Botão apro utilizadores</button>
+        <button class="register-btn" onclick="window.location.href='consultar_apontamentos.php'">Botão apro apontamentos</button>
     </div>
     <img src="../img/welcomev2.png" alt="Descrição" class="background-image">
 </section>

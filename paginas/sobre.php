@@ -1,4 +1,11 @@
-<html>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pt">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

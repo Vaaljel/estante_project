@@ -1,12 +1,21 @@
-<html>
-<head>    
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
+<!DOCTYPE html>
+
+<html lang="pt">
+
+<head>
     <title>ESTante | Erro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="erro.css">
 </head>
 
-<?php 
+<?php
 require_once "./nav.php";
 ?>
 

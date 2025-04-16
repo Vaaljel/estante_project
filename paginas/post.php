@@ -1,19 +1,27 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
   <meta charset="UTF-8">
   <title>Publicar Apontamento</title>
   <link rel="stylesheet" href="post.css">
   <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  
-<?php
-require_once './nav.php';
-require_once '../basedados/basedados.php';
-require_once '../basedados/auth.php';
-?>
- 
+
+  <?php
+  require_once './nav.php';
+  require_once '../basedados/basedados.php';
+  require_once '../basedados/auth.php';
+  ?>
+
 
   <div class="page-container">
     <div class="post-bloco-esquerdo">
@@ -34,7 +42,9 @@ require_once '../basedados/auth.php';
     <div class="post-bloco-direito">
       <h2>Descrição</h2>
       <div class="descricao">
-        <strong><Marco ></strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+        <strong>
+          <Marco>
+        </strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit...
       </div>
 
       <div class="botoes-switch">
@@ -47,27 +57,28 @@ require_once '../basedados/auth.php';
         <span class="remover">❌</span>
       </div>
       <div class="comentario">
-        <strong>Marco ›</strong> Outro comentário  
+        <strong>Marco ›</strong> Outro comentário
         <span class="remover">❌</span>
       </div>
       <div class="comentario">
-        <strong>Marco ›</strong> Outro comentário  
+        <strong>Marco ›</strong> Outro comentário
         <span class="remover">❌</span>
       </div>
       <div class="comentario">
-        <strong>Marco ›</strong> Outro comentário  
+        <strong>Marco ›</strong> Outro comentário
         <span class="remover">❌</span>
       </div>
       <div class="comentario">
-        <strong>Marco ›</strong> Outro comentário  
+        <strong>Marco ›</strong> Outro comentário
         <span class="remover">❌</span>
       </div>
       <div class="comentario">
-        <strong>Marco ›</strong> Outro comentário 
+        <strong>Marco ›</strong> Outro comentário
         <span class="remover">❌</span>
       </div>
     </div>
   </div>
 
 </body>
+
 </html>

@@ -1,19 +1,26 @@
-<html>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pt">
 
 <head>
 
-    <title>ESTante | Perfil</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="perfil.css">
+  <title>ESTante | Perfil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="perfil.css">
 </head>
 
-<?php 
+<?php
 require_once "./nav.php";
 require_once '../basedados/basedados.php';
 require_once '../basedados/auth.php';
 
-$user=getUser();
+$user = getUser();
 #print_r($user);
 ?>
 
@@ -45,4 +52,5 @@ $user=getUser();
     </div>
   </div>
 </body>
+
 </html>

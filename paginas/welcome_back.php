@@ -1,4 +1,11 @@
-<html>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pt">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +26,7 @@ require_once "./nav.php";
         <div class="text-container">
             <h1>Bem vindo de volta (Nome).</h1> <!-- No futuro detetar o nome com php-->
             <h2>Comece já a navegar!</h2>
-            <button onclick="window.location.href='feed.php'"  class="feed-btn">Feed</button>
+            <button onclick="window.location.href='feed.php'" class="feed-btn">Feed</button>
         </div>
     </section>
 </body>
