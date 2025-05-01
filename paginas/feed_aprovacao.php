@@ -17,6 +17,10 @@ if (session_status() == PHP_SESSION_NONE) {
     <title>ESTante | Feed Moderador</title>
 </head>
 
+<?php
+require_once './nav.php';
+?>
+
 <body>
     <?php
 

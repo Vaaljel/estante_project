@@ -44,6 +44,7 @@ if (session_status() == PHP_SESSION_NONE) {
                         // Define a classe CSS baseada no estado
                         $estado_class = $row["estado_apo"];
                         echo '
+                    <a href="post.php?id=' . $row["id_apo"] . '" class="post-link">
                     <div class="post">
                     <div class="post-header">
                     <img src="https://via.placeholder.com/30" alt="Marco">
@@ -69,6 +70,7 @@ if (session_status() == PHP_SESSION_NONE) {
                         ' . $row["descricao"] . '
                     </div>
                 </div>
+                </a>
                         ';
                         #echo '<li class="list-group-item">
                         #    <div class="apontamento-info">
