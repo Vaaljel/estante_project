@@ -197,3 +197,15 @@ h2 {
     display: block;
     margin-bottom: 5px;
   }
+
+  .post-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .post-link:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+  }
