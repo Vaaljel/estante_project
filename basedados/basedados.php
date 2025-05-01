@@ -9,7 +9,7 @@ define('password', ''); //CASO ERRO mudar palavra pass
 //MAMP = "ROOT"
 //XAMP = ""
 
-define('database','estantedb'); //banco de dados
+define('database','estante'); //banco de dados
 
 //Estabelecer conexão com o banco de dados
 $conn = new mysqli( server,user,password,database);
