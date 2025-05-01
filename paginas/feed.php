@@ -1,4 +1,7 @@
 <?php
+require_once '../basedados/basedados.php';
+require_once '../basedados/auth.php';
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -16,8 +19,6 @@ if (session_status() == PHP_SESSION_NONE) {
 <body>
     <?php
     require_once './nav.php';
-    require_once '../basedados/basedados.php';
-    require_once '../basedados/auth.php';
     ?>
 
     <div class="main">

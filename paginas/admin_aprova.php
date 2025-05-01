@@ -14,12 +14,12 @@ if (session_status() == PHP_SESSION_NONE) {
 </head>
 
 <body>
-<?php
+    <?php
     require_once './nav.php';
     require_once '../basedados/basedados.php';
     require_once '../basedados/auth.php';
     //validaAdmin();
-    
+
     // Processamento da aprovação ou rejeição
     if (isset($_POST['aprovar'])) {
         $id = intval($_POST['aprovar']);
@@ -34,10 +34,9 @@ if (session_status() == PHP_SESSION_NONE) {
 
         $sql = "DELETE FROM utilizadores WHERE estado = 'negado' AND id_utilizador = $id";
         $result = $conn->query($sql);
-
     }
     ?>
-    
+
     <div class="main">
         <div class="admin-container">
             <h2>Aprovação de Registos</h2>
@@ -66,16 +65,18 @@ if (session_status() == PHP_SESSION_NONE) {
                 ?>
             </ul>
         </div>
-        
+
         <!-- Imagens decorativas -->
         <div class="imagem-canto-superior">
             <img src="../img/estrelas.png" alt="Decoração" class="imagem-superior">
         </div>
         <div class="imagem-lateral">
-        <img src="../img/estrelas.png" alt="Decoração">
+            <img src="../img/estrelas.png" alt="Decoração">
         </div>
     </div>
 </body>
 
 
 </html>
+
+

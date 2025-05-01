@@ -1,8 +1,12 @@
 <?php
+require_once '../basedados/basedados.php';
+require_once '../basedados/auth.php';
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -15,9 +19,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <body>
     <?php
-    require_once './nav.php';
-    require_once '../basedados/basedados.php';
-    require_once '../basedados/auth.php';
+
+
         //validaAdmin();
 
     // Processamento de possíveis ações nos apontamentos

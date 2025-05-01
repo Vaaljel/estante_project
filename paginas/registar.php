@@ -1,8 +1,12 @@
 <?php
+require_once '../basedados/basedados.php';
+require_once '../basedados/auth.php';
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 ?>
+
 
 <html>
 
@@ -23,10 +27,6 @@ require_once './nav.php';
                 <div class="estanteLogo">ESTante</div>
                 <form method="POST">
                     <?php
-
-                    require_once '../basedados/basedados.php';
-                    require_once '../basedados/auth.php';
-
                     //Test
                     if (isLoggedIn()) {
                         header("Location: teste.php");
