@@ -5,11 +5,12 @@ body {
   margin: 0;
   padding: 0;
   background: white;
+  min-height: 100vh;
 }
 
 .page-container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .post-bloco-esquerdo {
@@ -19,6 +20,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .imagem-terminal {
@@ -26,6 +29,7 @@ body {
   height: auto;
   border: 2px solid white;
   border-radius: 10px;
+  object-fit: contain;
 }
 
 .avaliacao {
@@ -88,17 +92,179 @@ body {
 }
 
 .comentario {
-  border: 2px solid black;
-  padding: 10px;
-  border-radius: 5px;
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
   position: relative;
+  transition: transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.comentario:hover {
+  transform: translateY(-2px);
+}
+
+.comentario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-right: 30px;
+}
+
+.comentario-header strong {
+  color: #333;
+  font-size: 1.1em;
+}
+
+.data {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.comentario-conteudo {
+  color: #444;
+  line-height: 1.5;
+  padding-right: 30px;
 }
 
 .remover {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 15px;
+  top: 15px;
   color: red;
-  font-size: 20px;
+  font-size: 18px;
   cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  z-index: 1;
+}
+
+.remover:hover {
+  opacity: 1;
+}
+
+.comentarios-container {
+  margin-top: 20px;
+}
+
+.comentario-form {
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-header h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.2em;
+}
+
+.comentario-form textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-family: 'Sour Gummy', sans-serif;
+  resize: vertical;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  background: white;
+  color: #333;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.comentario-form textarea:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 0 3px rgba(0,0,0,0.1);
+}
+
+.comentario-form textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 12px 28px;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Sour Gummy', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.submit-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.submit-btn .arrow {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover .arrow {
+  transform: translateX(5px);
+}
+
+.login-prompt {
+  text-align: center;
+  padding: 20px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.login-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.login-btn:hover {
+  background: #333;
+}
+
+.comentarios-lista {
+  margin-top: 30px;
+}
+
+.comentarios-lista h3 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.3em;
+}
+
+.sem-comentarios {
+  text-align: center;
+  padding: 30px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  color: #666;
+  font-style: italic;
 }
