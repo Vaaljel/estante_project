@@ -28,15 +28,25 @@ if (session_status() == PHP_SESSION_NONE) {
                 // Show role-specific links first
                 if ($_SESSION['cargo'] == 'administrador') {
                     echo '<li><a href="admin_aprova.php" class="' . (basename($_SERVER['PHP_SELF']) == 'admin_aprova.php' ? 'active' : '') . '">Aprova Registos</a></li>';
+                    echo '<li><a href="feed.php" class="' . (basename($_SERVER['PHP_SELF']) == 'feed.php' ? 'active' : '') . '">Feed</a></li>';
+                    echo '<li><a href="sobre.php" class="' . (basename($_SERVER['PHP_SELF']) == 'sobre.php' ? 'active' : '') . '">Sobre</a></li>';
+                    echo '<li><a href="perfil.php" class="' . (basename($_SERVER['PHP_SELF']) == 'perfil.php' ? 'active' : '') . ' perfil"><img src="../img/perfil-nav.png" alt="Logo" class="perfil-img"></a></li>';
+
                 } elseif ($_SESSION['cargo'] == 'moderador') {
-                    echo '<li><a href="feed_aprovacao.php" class="' . (basename($_SERVER['PHP_SELF']) == 'feed_aprovacao.php' ? 'active' : '') . '">Mod Feed</a></li>';
+                    echo '<li><a href="aprovacao_apontamentos.php" class="' . (basename($_SERVER['PHP_SELF']) == 'aprovacao_apontamentos.php' ? 'active' : '') . '">Mod Feed</a></li>';
+                    echo '<li><a href="feed.php" class="' . (basename($_SERVER['PHP_SELF']) == 'feed.php' ? 'active' : '') . '">Feed</a></li>';
+                    echo '<li><a href="sobre.php" class="' . (basename($_SERVER['PHP_SELF']) == 'sobre.php' ? 'active' : '') . '">Sobre</a></li>';
+                    echo '<li><a href="perfil.php" class="' . (basename($_SERVER['PHP_SELF']) == 'perfil.php' ? 'active' : '') . ' perfil"><img src="../img/perfil-nav.png" alt="Logo" class="perfil-img"></a></li>';
+
+                } elseif ($_SESSION['cargo'] == 'cliente'){
+                        // Last three links for all logged-in users: feed, sobre, perfil
+                   echo '<li><a href="feed.php" class="' . (basename($_SERVER['PHP_SELF']) == 'feed.php' ? 'active' : '') . '">Feed</a></li>';
+                   echo '<li><a href="sobre.php" class="' . (basename($_SERVER['PHP_SELF']) == 'sobre.php' ? 'active' : '') . '">Sobre</a></li>';
+                   echo '<li><a href="perfil.php" class="' . (basename($_SERVER['PHP_SELF']) == 'perfil.php' ? 'active' : '') . ' perfil"><img src="../img/perfil-nav.png" alt="Logo" class="perfil-img"></a></li>';
+
                 }
 
-                // Last three links for all logged-in users: feed, sobre, perfil
-                echo '<li><a href="feed.php" class="' . (basename($_SERVER['PHP_SELF']) == 'feed.php' ? 'active' : '') . '">Feed</a></li>';
-                echo '<li><a href="sobre.php" class="' . (basename($_SERVER['PHP_SELF']) == 'sobre.php' ? 'active' : '') . '">Sobre</a></li>';
-                echo '<li><a href="perfil.php" class="' . (basename($_SERVER['PHP_SELF']) == 'perfil.php' ? 'active' : '') . ' perfil"><img src="../img/perfil-nav.png" alt="Logo" class="perfil-img"></a></li>';
-
+                
                 // Red logout button with icon
                 echo '<li><a href="testLogout.php" class="logout-btn"><img src="../img/logout-icon.png" alt="x" class="logout-img"></a></li>';
             } else {

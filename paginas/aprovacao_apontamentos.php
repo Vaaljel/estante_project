@@ -31,6 +31,7 @@ if (session_status() == PHP_SESSION_NONE) {
         $id = intval($_POST['rejeitar']);
         $sql = "UPDATE `apontamentos` SET `estado_apo` = 'negado' WHERE `apontamentos`.`id_apo` = " . $id;
         $result = $conn->query($sql);
+        header("Location:apontamentos_rejeitados.php"); 
     }
     ?>
 
