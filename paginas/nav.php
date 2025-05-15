@@ -39,7 +39,6 @@ if (session_status() == PHP_SESSION_NONE) {
                     echo '<li><a href="perfil.php" class="' . (basename($_SERVER['PHP_SELF']) == 'perfil.php' ? 'active' : '') . ' perfil"><img src="../img/perfil-nav.png" alt="Logo" class="perfil-img"></a></li>';
 
                 } elseif ($_SESSION['cargo'] == 'cliente'){
-                        // Last three links for all logged-in users: feed, sobre, perfil
                    echo '<li><a href="feed.php" class="' . (basename($_SERVER['PHP_SELF']) == 'feed.php' ? 'active' : '') . '">Feed</a></li>';
                    echo '<li><a href="sobre.php" class="' . (basename($_SERVER['PHP_SELF']) == 'sobre.php' ? 'active' : '') . '">Sobre</a></li>';
                    echo '<li><a href="perfil.php" class="' . (basename($_SERVER['PHP_SELF']) == 'perfil.php' ? 'active' : '') . ' perfil"><img src="../img/perfil-nav.png" alt="Logo" class="perfil-img"></a></li>';

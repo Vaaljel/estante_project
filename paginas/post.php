@@ -3,7 +3,7 @@ require_once '../basedados/basedados.php';
 require_once '../basedados/auth.php';
 
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+  session_start();
 }
 
 // Enable error reporting for debugging
@@ -12,80 +12,81 @@ ini_set('display_errors', 1);
 
 // Verificar se o ID do apontamento foi fornecido
 if (!isset($_GET['id'])) {
-    header("Location: feed.php");
-    exit();
+  header("Location: feed.php");
+  exit();
 }
 
 $id_apo = $_GET['id'];
 
 // Handle comment submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['comentario']) && isLoggedIn()) {
-        try {
-            $comentario = escaparString($_POST['comentario']);
-            $id_utilizador = $_SESSION['user_id'];
-            
-            // Debug information
-            error_log("Attempting to insert comment. User ID: " . $id_utilizador . ", Post ID: " . $id_apo);
-            
-            $sql_insert = "INSERT INTO comentario (id_apo, id_utilizador, cometario) VALUES (?, ?, ?)";
-            $stmt = $conn->prepare($sql_insert);
-            
-            if (!$stmt) {
-                throw new Exception("Prepare failed: " . $conn->error);
-            }
-            
-            $stmt->bind_param("iis", $id_apo, $id_utilizador, $comentario);
-            
-            if (!$stmt->execute()) {
-                throw new Exception("Execute failed: " . $stmt->error);
-            }
-            
-            // Redirect to refresh the page and show the new comment
-            header("Location: post.php?id=" . $id_apo);
-            exit();
-        } catch (Exception $e) {
-            error_log("Error in comment submission: " . $e->getMessage());
-            echo "Erro ao enviar comentário. Por favor, tente novamente.";
-        }
-    } elseif (isset($_POST['delete_comment']) && isLoggedIn()) {
-        $id_comentario = $_POST['delete_comment'];
-        
-        // Verificar se o usuário tem permissão para apagar o comentário
-        $sql_check = "SELECT c.id_utilizador, u.cargo 
+  if (isset($_POST['comentario']) && isLoggedIn()) {
+    try {
+      $comentario = escaparString($_POST['comentario']);
+      $id_utilizador = $_SESSION['user_id'];
+
+      // Debug information
+      error_log("Attempting to insert comment. User ID: " . $id_utilizador . ", Post ID: " . $id_apo);
+
+      $sql_insert = "INSERT INTO comentario (id_apo, id_utilizador, cometario) VALUES (?, ?, ?)";
+      $stmt = $conn->prepare($sql_insert);
+
+      if (!$stmt) {
+        throw new Exception("Prepare failed: " . $conn->error);
+      }
+
+      $stmt->bind_param("iis", $id_apo, $id_utilizador, $comentario);
+
+      if (!$stmt->execute()) {
+        throw new Exception("Execute failed: " . $stmt->error);
+      }
+
+      // Redirect to refresh the page and show the new comment
+      header("Location: post.php?id=" . $id_apo);
+      exit();
+    } catch (Exception $e) {
+      error_log("Error in comment submission: " . $e->getMessage());
+      echo "Erro ao enviar comentário. Por favor, tente novamente.";
+    }
+  } elseif (isset($_POST['delete_comment']) && isLoggedIn()) {
+    $id_comentario = $_POST['delete_comment'];
+
+    // Verificar se o usuário tem permissão para apagar o comentário
+    $sql_check = "SELECT c.id_utilizador, u.cargo 
                      FROM comentario c 
                      INNER JOIN utilizadores u ON c.id_utilizador = u.id_utilizador 
                      WHERE c.id_comentario = ?";
-        
-        $stmt = $conn->prepare($sql_check);
+
+    $stmt = $conn->prepare($sql_check);
+    $stmt->bind_param("i", $id_comentario);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+      $comment_data = $result->fetch_assoc();
+
+      // Verificar se o usuário é o dono do comentário ou tem cargo de moderador/administrador
+      if (
+        $_SESSION['user_id'] == $comment_data['id_utilizador'] ||
+        $_SESSION['cargo'] == 'moderador'
+      ) {
+
+        // Apagar o comentário
+        $sql_delete = "DELETE FROM comentario WHERE id_comentario = ?";
+        $stmt = $conn->prepare($sql_delete);
         $stmt->bind_param("i", $id_comentario);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        
-        if ($result->num_rows > 0) {
-            $comment_data = $result->fetch_assoc();
-            
-            // Verificar se o usuário é o dono do comentário ou tem cargo de moderador/administrador
-            if ($_SESSION['user_id'] == $comment_data['id_utilizador'] || 
-                $_SESSION['cargo'] == 'moderador' || 
-                $_SESSION['cargo'] == 'administrador') {
-                
-                // Apagar o comentário
-                $sql_delete = "DELETE FROM comentario WHERE id_comentario = ?";
-                $stmt = $conn->prepare($sql_delete);
-                $stmt->bind_param("i", $id_comentario);
-                
-                if ($stmt->execute()) {
-                    header("Location: post.php?id=" . $id_apo);
-                    exit();
-                } else {
-                    echo "Erro ao apagar o comentário.";
-                }
-            } else {
-                echo "Você não tem permissão para apagar este comentário.";
-            }
+
+        if ($stmt->execute()) {
+          header("Location: post.php?id=" . $id_apo);
+          exit();
+        } else {
+          echo "Erro ao apagar o comentário.";
         }
+      } else {
+        echo "Você não tem permissão para apagar este comentário.";
+      }
     }
+  }
 }
 
 // Buscar dados do apontamento
@@ -101,8 +102,8 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows === 0) {
-    header("Location: feed.php");
-    exit();
+  header("Location: feed.php");
+  exit();
 }
 
 $apontamento = $result->fetch_assoc();
@@ -166,36 +167,36 @@ $comentarios = $stmt->get_result();
 
       <div class="comentarios-container">
         <?php if (isLoggedIn()): ?>
-        <form method="POST" action="" class="comentario-form">
-          <div class="form-header">
-            <h3>Adicionar Comentário</h3>
-          </div>
-          <textarea name="comentario" placeholder="Comenta aqui" required></textarea>
-          <button type="submit" class="submit-btn">
-            <span>Enviar Comentário</span>
-            <i class="arrow">→</i>
-          </button>
-        </form>
+          <form method="POST" action="" class="comentario-form">
+            <div class="form-header">
+              <h3>Adicionar Comentário</h3>
+            </div>
+            <textarea name="comentario" placeholder="Comenta aqui" required></textarea>
+            <button type="submit" class="submit-btn">
+              <span>Enviar Comentário</span>
+              <i class="arrow">→</i>
+            </button>
+          </form>
         <?php else: ?>
-        <div class="login-prompt">
-          <p>Faça login para deixar um comentário</p>
-          <a href="login.php" class="login-btn">Login</a>
-        </div>
+          <div class="login-prompt">
+            <p>Faça login para deixar um comentário</p>
+            <a href="login.php" class="login-btn">Login</a>
+          </div>
         <?php endif; ?>
 
         <div class="comentarios-lista">
           <h3>Comentários</h3>
           <?php
           if ($comentarios->num_rows > 0) {
-              while ($comentario = $comentarios->fetch_assoc()) {
-                  $can_delete = false;
-                  if (isLoggedIn()) {
-                      $can_delete = ($_SESSION['user_id'] == $comentario['id_utilizador'] || 
-                                   $_SESSION['cargo'] == 'moderador' || 
-                                   $_SESSION['cargo'] == 'administrador');
-                  }
-                  
-                  echo '<div class="comentario">
+            while ($comentario = $comentarios->fetch_assoc()) {
+              $can_delete = false;
+              if (isLoggedIn()) {
+                $can_delete = ($_SESSION['user_id'] == $comentario['id_utilizador'] ||
+                  $_SESSION['cargo'] == 'moderador' ||
+                  $_SESSION['cargo'] == 'administrador');
+              }
+
+              echo '<div class="comentario">
                           <div class="comentario-header">
                             <strong>' . htmlspecialchars($comentario['nome_utilizador']) . '</strong>
                             <span class="data">' . date('d/m/Y', strtotime($comentario['data_comentario'])) . '</span>
@@ -203,18 +204,18 @@ $comentarios = $stmt->get_result();
                           <div class="comentario-conteudo">
                             ' . htmlspecialchars($comentario['cometario']) . '
                           </div>';
-                  
-                  if ($can_delete) {
-                      echo '<form method="POST" action="" class="delete-form">
+
+              if ($can_delete) {
+                echo '<form method="POST" action="" class="delete-form">
                               <input type="hidden" name="delete_comment" value="' . $comentario['id_comentario'] . '">
                               <button type="submit" class="remover" title="Remover comentário">❌</button>
                             </form>';
-                  }
-                  
-                  echo '</div>';
               }
+
+              echo '</div>';
+            }
           } else {
-              echo '<div class="sem-comentarios">Nenhum comentário ainda. Seja o primeiro a comentar!</div>';
+            echo '<div class="sem-comentarios">Nenhum comentário ainda. Seja o primeiro a comentar!</div>';
           }
           ?>
         </div>
