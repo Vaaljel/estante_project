@@ -57,7 +57,7 @@ require_once "./nav.php";
                     ?>
                     <div class="input-group">
                         <label>Email</label>
-                        <input type="email" name="endereco" placeholder="nome" required>
+                        <input type="email" name="endereco" placeholder="email" required>
                     </div>
                     <div class="input-group">
                         <label>Password</label>

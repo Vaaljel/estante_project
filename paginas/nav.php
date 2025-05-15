@@ -17,7 +17,9 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <header>
     <div class="logo">
-        <img src="../img/logo-nav.png" alt="Logo" class="logo-img">
+        <a href="<?php echo isLoggedIn() ? 'welcome_back.php' : 'index.php'; ?>">
+            <img src="../img/logo-nav.png" alt="Logo" class="logo-img">
+        </a>
     </div>
     <nav>
         <ul>
