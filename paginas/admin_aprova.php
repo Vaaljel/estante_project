@@ -54,7 +54,9 @@ if (session_status() == PHP_SESSION_NONE) {
                                 <form method="post">
                                     <button type="submit" value="' . $row["id_utilizador"] . '" name="aprovar" class="approve">Aprovar</button>
                                     <button type="submit" value="' . $row["id_utilizador"] . '" name="rejeitar" class="deny">Rejeitar</button>
-                                    <a href="" class="checkpro">Ver Processo</a>
+                                </form>
+                                <form method="POST" action="visualizarPros.php">
+                                    <button type="submit" value="' .$row["id_utilizador"] . '" name="ver_processo" class="approve">Ver Processo</button>
                                 </form>
                             </div>
                         </li>';

@@ -95,20 +95,6 @@ require_once './nav.php';
                             </div>
                 </div>
                         ';
-                        #echo '<li class="list-group-item">
-                        #    <div class="apontamento-info">
-                        #        <h3>' . $row["titulo"] . '</h3>
-                        //         <p>Disciplina: ' . $row["nome_disciplina"] . '</p>
-                        //         <p>Utilizador: ' . $row["nome_utilizador"] . '</p>
-                        //         <p>Data: ' . $row["data_submissao"] . '</p>
-                        //         <p class="' . $estado_class . '">Estado: ' . $row["estado_apo"] . '</p>
-                        //     </div>
-                        //     <div class="acoes">
-                        //         <form method="post">
-                        //             <a href="visualizar_apontamento.php?id=' . $row["id_apo"] . '" class="checkpro">Visualizar</a>
-                        //         </form>
-                        //     </div>
-                        // </li>';
                     }
                 } else {
                     echo "<p>Não foram encontrados apontamentos.</p>";

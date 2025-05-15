@@ -1,4 +1,7 @@
 <?php
+require_once '../basedados/basedados.php';
+require_once '../basedados/auth.php';
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -7,9 +10,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Moderação de Post's</title>
   <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="aguardarPost.css"/>
 </head>
