@@ -48,8 +48,6 @@ $user = getUser();
           <div>Sugestões: <strong>0</strong></div>
         </div>
       </div>
-
-      <button class="btn">Ver Atividade</button>
     </div>
   </div>
 </body>
