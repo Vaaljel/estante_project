@@ -2,18 +2,18 @@
 
 <head>
 
-    <title>ESTante | Perfil</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="registo_aprovacao.css">
+  <title>ESTante | Perfil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="registo_aprovacao.css">
 </head>
 
-<?php 
+<?php
 require_once "./nav.php";
 require_once '../basedados/basedados.php';
 require_once '../basedados/auth.php';
 
-$user=getUser();
+$user = getUser();
 #print_r($user);
 ?>
 
@@ -30,15 +30,14 @@ $user=getUser();
         <p>Número de aluno: <span><?= $user['id_utilizador'] ?></span> | Curso: Engenharia Informática</p>
         <p>Email: <?= $user['endereco'] ?></p>
       </div>
+    </div>
+
+    <div class="acoes">
+      <form class="acoes" method="post">
+        <button type="submit" value="' . $row[" id_apo"] . '" name="aprovar" class="approve">Aprovar</button>
+         <button type="submit" value="' . $row["id_apo"] . '" name="rejeitar" class="deny">Rejeitar</button>
+        </form>
       </div>
-
-      <div class="acoes">
-                                <form class="acoes" method="post">
-                                    <button type="submit" value="' . $row["id_apo"] . '" name="aprovar" class="approve">Aprovar</button>
-                                    <button type="submit" value="' . $row["id_apo"] . '" name="rejeitar" class="deny">Rejeitar</button>
-                                </form>
-                            </div>
-
     </div>
   </div>
 </body>

@@ -100,4 +100,8 @@ body {
   .btn:hover {
     background-color: #eee;
   }
+
+  .white {
+    color: white;
+  }
   
