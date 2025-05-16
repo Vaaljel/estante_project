@@ -75,21 +75,6 @@ body {
   border-radius: 10px;
 }
 
-.botoes-switch button {
-  font-family: 'Sour Gummy', sans-serif;
-  padding: 10px 20px;
-  font-size: 18px;
-  border: 2px solid black;
-  border-radius: 8px;
-  margin-right: 10px;
-  cursor: pointer;
-  background: white;
-}
-
-.botoes-switch .ativo {
-  background: black;
-  color: white;
-}
 
 .comentario {
   position: relative;
@@ -158,6 +143,21 @@ body {
 
 .comentarios-container {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comentarios-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.comentarios-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .comentario-form {
@@ -261,21 +261,102 @@ body {
   background: #333;
 }
 
-.comentarios-lista {
-  margin-top: 30px;
-}
-
-.comentarios-lista h3 {
-  margin-bottom: 20px;
-  color: #333;
-  font-size: 1.3em;
-}
-
 .sem-comentarios {
   text-align: center;
   padding: 30px;
   background: #f8f8f8;
   border-radius: 10px;
   color: #666;
+  font-style: italic;
+}
+
+.sugestao-link {
+  margin-top: 20px;
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  text-align: center;
+  width: 100%;
+}
+
+.sugestao-link a {
+  color: #333;
+  text-decoration: underline;
+  font-size: 1.1em;
+  transition: color 0.2s;
+  display: inline-block;
+  padding: 5px 0;
+}
+
+.sugestao-link a:hover {
+  color: #000;
+}
+
+/* Estilos do Popup */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.fechar-popup {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.fechar-popup:hover {
+  color: #000;
+}
+
+.sugestao-form {
+  margin-top: 20px;
+}
+
+.sugestao-form textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-family: 'Sour Gummy', sans-serif;
+  resize: vertical;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  background: white;
+  color: #333;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.sugestao-form textarea:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 0 3px rgba(0,0,0,0.1);
+}
+
+.sugestao-form textarea::placeholder {
+  color: #999;
   font-style: italic;
 }

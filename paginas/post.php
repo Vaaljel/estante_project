@@ -160,10 +160,7 @@ $comentarios = $stmt->get_result();
         <?php echo htmlspecialchars($apontamento['descricao']); ?>
       </div>
 
-      <div class="botoes-switch">
-        <button class="ativo">Sugestões</button>
-        <button>Comentários</button>
-      </div>
+    
 
       <div class="comentarios-container">
         <?php if (isLoggedIn()): ?>
@@ -186,40 +183,87 @@ $comentarios = $stmt->get_result();
 
         <div class="comentarios-lista">
           <h3>Comentários</h3>
-          <?php
-          if ($comentarios->num_rows > 0) {
-            while ($comentario = $comentarios->fetch_assoc()) {
-              $can_delete = false;
-              if (isLoggedIn()) {
-                $can_delete = ($_SESSION['user_id'] == $comentario['id_utilizador'] ||
-                  $_SESSION['cargo'] == 'moderador' ||
-                  $_SESSION['cargo'] == 'administrador');
+          <div class="comentarios-content">
+            <?php
+            if ($comentarios->num_rows > 0) {
+              while ($comentario = $comentarios->fetch_assoc()) {
+                $can_delete = false;
+                if (isLoggedIn()) {
+                  $can_delete = ($_SESSION['user_id'] == $comentario['id_utilizador'] ||
+                    $_SESSION['cargo'] == 'moderador' ||
+                    $_SESSION['cargo'] == 'administrador');
+                }
+
+                echo '<div class="comentario">
+                        <div class="comentario-header">
+                          <strong>' . htmlspecialchars($comentario['nome_utilizador']) . '</strong>
+                          <span class="data">' . date('d/m/Y', strtotime($comentario['data_comentario'])) . '</span>
+                        </div>
+                        <div class="comentario-conteudo">
+                          ' . htmlspecialchars($comentario['cometario']) . '
+                        </div>';
+
+                if ($can_delete) {
+                  echo '<form method="POST" action="" class="delete-form">
+                          <input type="hidden" name="delete_comment" value="' . $comentario['id_comentario'] . '">
+                          <button type="submit" class="remover" title="Remover comentário">❌</button>
+                        </form>';
+                }
+
+                echo '</div>';
               }
-
-              echo '<div class="comentario">
-                          <div class="comentario-header">
-                            <strong>' . htmlspecialchars($comentario['nome_utilizador']) . '</strong>
-                            <span class="data">' . date('d/m/Y', strtotime($comentario['data_comentario'])) . '</span>
-                          </div>
-                          <div class="comentario-conteudo">
-                            ' . htmlspecialchars($comentario['cometario']) . '
-                          </div>';
-
-              if ($can_delete) {
-                echo '<form method="POST" action="" class="delete-form">
-                              <input type="hidden" name="delete_comment" value="' . $comentario['id_comentario'] . '">
-                              <button type="submit" class="remover" title="Remover comentário">❌</button>
-                            </form>';
-              }
-
-              echo '</div>';
+            } else {
+              echo '<div class="sem-comentarios">Nenhum comentário ainda. Seja o primeiro a comentar!</div>';
             }
-          } else {
-            echo '<div class="sem-comentarios">Nenhum comentário ainda. Seja o primeiro a comentar!</div>';
-          }
-          ?>
+            ?>
+            <div class="sugestao-link">
+              <a href="#" id="abrirSugestao">Tens alguma sugestão de melhoria? Submete aqui.</a>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Popup de Sugestão -->
+      <div id="popupSugestao" class="popup-overlay">
+        <div class="popup-content">
+          <span class="fechar-popup">&times;</span>
+          <form method="POST" action="" class="sugestao-form">
+            <div class="form-header">
+              <h3>Enviar Sugestão</h3>
+            </div>
+            <textarea name="sugestao" placeholder="Escreve aqui a tua sugestão..." required></textarea>
+            <button type="submit" class="submit-btn">
+              <span>Enviar Sugestão</span>
+              <i class="arrow">→</i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <script>
+        // Elementos do popup
+        const popup = document.getElementById('popupSugestao');
+        const abrirBtn = document.getElementById('abrirSugestao');
+        const fecharBtn = document.querySelector('.fechar-popup');
+
+        // Abrir popup
+        abrirBtn.onclick = function(e) {
+          e.preventDefault();
+          popup.style.display = "flex";
+        }
+
+        // Fechar popup
+        fecharBtn.onclick = function() {
+          popup.style.display = "none";
+        }
+
+        // Fechar popup ao clicar fora
+        window.onclick = function(e) {
+          if (e.target == popup) {
+            popup.style.display = "none";
+          }
+        }
+      </script>
     </div>
   </div>
 
