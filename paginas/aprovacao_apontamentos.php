@@ -79,7 +79,7 @@ if (session_status() == PHP_SESSION_NONE) {
                                 <form method="post">
                                     <button type="submit" value="' . $row["id_apo"] . '" name="aprovar" class="approve">Aprovar</button>
                                     <button type="submit" value="' . $row["id_apo"] . '" name="rejeitar" class="deny">Rejeitar</button>
-                                    <a href="visualizar_apontamento.php?id=' . $row["id_apo"] . '" class="checkpro">Visualizar</a>
+                                    <a href="post_visualizar.php?id=' . $row["id_apo"] . '" class="checkpro">Visualizar</a>
                                 </form>
                             </div>
                         </li>';
