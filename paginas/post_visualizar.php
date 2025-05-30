@@ -229,7 +229,7 @@ $comentarios = $stmt->get_result();
             <!-- Popup de Sugestão -->
             <div id="popupSugestao" class="popup-overlay">
                 <div class="popup-content">
-                    <span class="fechar-popup">&times;</span>
+ x\                   <span class="fechar-popup">&times;</span>
                     <form method="POST" action="" class="sugestao-form">
                         <div class="form-header">
                             <h3>Enviar Sugestão</h3>

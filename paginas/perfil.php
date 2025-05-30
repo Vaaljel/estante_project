@@ -38,6 +38,7 @@ $user = getUser();
         <p>Número de aluno: <span><?= $user['id_utilizador'] ?></span> | Curso: Engenharia Informática</p>
         <p>Email: <?= $user['endereco'] ?></p>
       </div>
+      <a href="perfilEditar.php" class="button">Editar Perfil</a>
 
       <div class="contribuicao">
         <h3>Contribuição</h3>
